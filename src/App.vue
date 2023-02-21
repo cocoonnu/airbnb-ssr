@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import IndexedDB from '@/utils/indexedDB'
 
-const { t, locale } = useI18n()
-
-function changeLan(lan: string) {
-    locale.value = lan
-}
-
+// 创建数据库
+const airbnDB = new IndexedDB('airbnDB')
+airbnDB.openStore('room','id', ['hose', 'shu'])
 </script>
 
 <template>
-    <button @click="changeLan('zh')">中文</button>
-    <button @click="changeLan('en')">英文</button>
-
-    <h1>{{ t('header.orders') }}</h1>
+    <h1>app</h1>
 </template>
 
 <style lang="scss" scoped>
