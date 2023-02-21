@@ -1,0 +1,7 @@
+// 定义变量
+$red: red;
+
+// 定义函数（css 集中样式）
+@mixin background-black {
+    background-color: black;
+}

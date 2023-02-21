@@ -12,7 +12,10 @@ import 'element-plus/dist/index.css'
 import { ElMessage } from 'element-plus'
 app.config.globalProperties.$message = ElMessage
 
+// 语言配置
+import i18n from '@/language/i18n'
 
+app.use(i18n)
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')

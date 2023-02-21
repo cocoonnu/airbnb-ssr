@@ -28,4 +28,14 @@ export default defineConfig({
     define: {
         'process.env': {},
     },
+
+    // 配置 scss 入口文件
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "@/assets/scss/variable.scss";`
+            }
+        }
+    },
+
 })
