@@ -1,7 +1,19 @@
 // 定义变量
-$red: red;
+$orange: rgba(255, 81, 0, 0.842);
 
 // 定义函数（css 集中样式）
-@mixin background-black {
-    background-color: black;
+
+// 主体基本样式
+@mixin main-wapper($tb: 40px) {
+    width: 1048px;
+    margin: $tb auto;
+}
+
+// flex布局
+@mixin flex-layout($dir: column, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: wrap;
 }

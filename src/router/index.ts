@@ -1,3 +1,4 @@
+import { homedir } from 'os'
 import { createRouter } from 'vue-router'
 import { createWebHashHistory } from 'vue-router' // mode: 'hash'
 import { createWebHistory } from 'vue-router' // mode: 'history'
@@ -5,14 +6,20 @@ import { createWebHistory } from 'vue-router' // mode: 'history'
 
 const routes = [
     {
-        path: '/',
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login/index.vue')
+    },
+    {
+        path: '/home',
+        name: 'home',
         component: () => import('@/views/home/index.vue')
     },
     {
-        path: '/hello',
-        name: 'hello',
-        component: () => import('@/views/HelloWorld.vue')
-    }
+        path: '/',
+        redirect: '/login'
+    }  
+
 ]
 
 const router = createRouter({
