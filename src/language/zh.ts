@@ -28,14 +28,20 @@ export default {
         neighbors: '邻里支持'
     },
     login: {
-        loginBtn: '进入爱此迎',
+        loginBtn: '立即登录',
         signBtn: '立即注册',
         loginTab: '登录',
         signTab: '注册',
         placeMobile: '请输入正确的手机号',
         placePass: '请输入正确的密码',
         logout: '退出',
-        loginLost: '您还未登录，请先登录哦~'
+        loginLost: '您还未登录，请先登录哦~',
+        mobile: '手机号',
+        password: '密码',
+        title: '欢迎',
+        msg: '请输入您的信息',
+        question: '需要创建一个账户？'
+
     },
     home: {
         h2Title: '跨年特惠房源',

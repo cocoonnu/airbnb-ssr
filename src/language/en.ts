@@ -28,14 +28,20 @@ export default {
         neighbors: 'Neighbors'
     },
     login: {
-        loginBtn: 'Log in Airbnb',
-        signBtn: 'Sign up',
+        loginBtn: 'Login',
+        signBtn: 'Signup',
         loginTab: 'Log in',
         signTab: 'Sign up',
         placeMobile: 'Please  write correct mobile number',
         placePass: 'Please white corret password',
         logout: 'Logout',
-        loginLost: 'Please login first'
+        loginLost: 'Please login first',
+        mobile: 'Mobile',
+        password: 'Password',
+        title: 'Welcome back',
+        msg: 'Enter your details',
+        question: `Don't Have a account?`
+
     },
     home: {
         h2Title: "New Year's Eve Discounts Housing Resource",
