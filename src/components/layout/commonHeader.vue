@@ -5,6 +5,8 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import { saveLanguageApi } from '@/api/index'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router';
+const router = useRouter() // 全局 router
 
 // 全局语言
 const { t, locale } = useI18n()
@@ -61,6 +63,14 @@ const handleSelect = async function(key: string) {
             ElMessage.error(result.data)
         }
     }
+
+    if(key == 'login') {
+        router.replace({ name: 'login' })
+    }
+
+    if(key == 'logout') {
+        router.replace({ name: 'login' })
+    }
 }
 
 </script>
@@ -88,6 +98,15 @@ const handleSelect = async function(key: string) {
             <el-menu-item index="avatar">
                 <div class="avatar"></div>
             </el-menu-item>
+
+            <!-- 退出登录按钮 -->
+            <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
+
+            <!-- 登录按钮 -->
+            <el-menu-item index="login" >
+                {{ t("login.loginTab") }}/{{ t("login.signTab") }}
+            </el-menu-item>
+
         </el-menu>
 
     </div>

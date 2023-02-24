@@ -5,11 +5,13 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import { fetchLanguageApi, saveLanguageApi } from '@/api/index'
 import { ElMessage } from 'element-plus'
+import { userSignApi } from '@/api/login/index'
 
 // 全局语言
 const { t, locale: localeI18n } = useI18n()
 
-// 首次加载语言包 locale: el 语言包  localeI18n: 全局语言包
+
+// 首次加载语言包（locale: el 语言包  localeI18n: 全局语言包）
 const locale = ref(zhCn)
 async function getLocale() {
     let result: any = await fetchLanguageApi()
@@ -33,17 +35,38 @@ const labelPosition = ref('top')
 
 
 // 表单登录按钮
-function submitForm() {
+async function submitForm() {
+    let result = await userSignApi({ mobile: '18579152311', password: '123' })
 
+    console.log(result);
+    
 }
+
+// 表单规则
+const rules = reactive({
+    mobile: [
+        {
+            required: true,
+            min: 11,
+            max: 11,
+            message: '',
+            trigger: 'blur'
+        }
+    ],
+    password: [
+        {
+            required: true,
+            message: '',
+            trigger: 'blur'
+        }
+    ]
+})
+
 
 
 // 改变语言
 const changeLang = async function () {
     let lang: any = await fetchLanguageApi()
-    console.log(lang);
-    
-
     
     if (lang.data.language == 'en') {
         let result: any = await saveLanguageApi('zh')
@@ -64,7 +87,8 @@ const changeLang = async function () {
         }
     }
 
-    if (lang.data.language == 'zh') {
+    if (lang.data.language == 'zh' || !lang.data) {
+
         let result: any = await saveLanguageApi('en')
 
         if (result.code = 200) {
@@ -88,6 +112,7 @@ const changeLang = async function () {
 <template>
 <el-config-provider :locale="locale">
 
+    <!-- 切换语言 -->
     <div class="changeLang" @click="changeLang"></div>
 
     <div class="login-container">
@@ -97,25 +122,32 @@ const changeLang = async function () {
             <p>{{ t('login.msg') }}</p>
     
             <el-form
+                :rules="rules"
                 :model="formLabelAlign"
                 :label-position="labelPosition"
             >
-                <el-form-item :label="t('login.mobile')">
+
+                <!-- 手机号 -->
+                <el-form-item :label="t('login.mobile')" prop="mobile">
                     <el-input 
                         :placeholder="t('login.placeMobile')"
                         v-model="formLabelAlign.mobile" 
                     />
                 </el-form-item>
 
-                <el-form-item :label="t('login.password')">
+                <!-- 密码 -->
+                <el-form-item :label="t('login.password')" prop="password">
                     <el-input 
                         :placeholder="t('login.placePass')"
                         v-model="formLabelAlign.password" 
+                        autocomplete="off"
+                        type="password"
                     />
                 </el-form-item>
 
                 <a class="forgot">{{ t('login.question') }}</a>
 
+                <!-- 按钮 -->
                 <el-form-item>
                     <el-button class="submit" type="primary" @click="submitForm" >
                         {{ t('login.loginBtn') }}

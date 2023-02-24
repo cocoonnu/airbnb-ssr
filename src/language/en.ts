@@ -18,7 +18,7 @@ export default {
         magzine: 'Airbnb Magzine',
         airbnborg: 'Airbnb.org',
         rent: 'Rent',
-        whyRent: 'Why do you rent？',
+        whyRent: 'Why do you rent?',
         hospitality: 'Hospitality',
         responsibleHosting: 'Responsible Hosting',
         experiences: 'Experiences',
@@ -45,7 +45,7 @@ export default {
     },
     home: {
         h2Title: "New Year's Eve Discounts Housing Resource",
-        subTitle: 'Quality housing resource，Under 5 fold',
+        subTitle: 'Quality housing resource, Under 5 fold',
         city: {
             hz: 'Hangzhou',
             sh: 'Shanghai',
@@ -73,7 +73,7 @@ export default {
         landlord: 'Landlord',
         contact: 'Contact the landlord',
         greatlandlord: 'Great landlord',
-        reservated: 'Reservated successfully！'
+        reservated: 'Reservated successfully!'
     },
     common: {
         loading: 'Loading...',

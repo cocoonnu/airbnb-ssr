@@ -23,9 +23,6 @@ async function getLocale() {
 }
 getLocale()
 
-
-console.log(localeI18n.value);
-
 </script>
 
 <template>
