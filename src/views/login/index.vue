@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { reactive, ref } from 'vue'
+
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
-import { fetchLanguageApi, saveLanguageApi } from '@/api/index'
 import { ElMessage } from 'element-plus'
-import { userSignApi } from '@/api/login/index'
+import { ElLoading } from 'element-plus'
+import type { FormInstance } from 'element-plus'
+
+import { fetchLanguageApi, saveLanguageApi } from '@/api/index'
+import { userSignApi, userLoginApi, userLogoutApi } from '@/api/login/index'
+
+import { reactive, ref, onMounted } from 'vue'
 
 // 全局语言
 const { t, locale: localeI18n } = useI18n()
-
-
-// 首次加载语言包（locale: el 语言包  localeI18n: 全局语言包）
 const locale = ref(zhCn)
+
+
+// 获取全局语言
 async function getLocale() {
     let result: any = await fetchLanguageApi()
 
@@ -21,40 +26,32 @@ async function getLocale() {
         localeI18n.value = 'en'
     }
 }
-getLocale()
 
 
 // 表单数据
-const formLabelAlign = reactive({
+const labelPosition = ref('top')
+const ruleFormRef = ref<FormInstance>() // 整个表单
+const formData = reactive({
     mobile: '',
     password: '',
 })
 
-// label 位置
-const labelPosition = ref('top')
 
-
-// 表单登录按钮
-async function submitForm() {
-    let result = await userSignApi({ mobile: '18579152311', password: '123' })
-
-    console.log(result);
-    
-}
-
-// 表单规则
+// 表单效验规则
 const rules = reactive({
     mobile: [
         {
-            required: true,
             min: 11,
             max: 11,
+            required: true,
             message: '',
             trigger: 'blur'
         }
     ],
     password: [
         {
+            min: 6,
+            max: 15,
             required: true,
             message: '',
             trigger: 'blur'
@@ -62,6 +59,73 @@ const rules = reactive({
     ]
 })
 
+
+// 登录注册按钮
+async function submitForm(formEl: FormInstance | undefined) {
+    if (!formEl) return
+
+    formEl.validate(async function(valid) {
+        if(!valid) {
+            ElMessage.error('请填入正确信息')
+            return false
+        }
+
+        if (loginSignCheck.value == 'sign') {
+            let result = await userSignApi(formData)
+
+            if (result.code == '000001') ElMessage.error('手机号已被注册')
+            if (result.code == '000004') ElMessage.error('注册失败')
+            if (result.code == '000000') {
+                ElMessage({
+                    message: '注册成功',
+                    type: 'success',
+                    duration: 1000
+                })
+            }
+        }
+        
+        if (loginSignCheck.value == 'login') {
+            let result = await userLoginApi(formData)
+
+            if (result.code == '000002') ElMessage.error('密码不正确')
+            if (result.code == '000003') ElMessage.error('手机号不正确')
+            if (result.code == '000004') ElMessage.error('登录失败')
+            if (result.code == '000000') {
+                ElMessage({
+                    message: '登录成功',
+                    type: 'success',
+                    duration: 1000
+                })
+            }
+        }
+
+    })
+}
+
+
+// 切换登录和注册
+let loginSignCheck = ref('login')
+function loginSign() {
+    if (loginSignCheck.value == 'login') loginSignCheck.value = 'sign'
+    else loginSignCheck.value = 'login' 
+
+    // 创建 mock 加载效果
+    const loading = ElLoading.service({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(255, 255, 255, 0.7)',
+    })
+
+    // 加载结束
+    setTimeout(() => { loading.close() }, 500)
+    
+    // 发送消息
+    ElMessage({
+        message: `切换页面成功`,
+        type: 'success',
+        duration: 1000
+    })
+}
 
 
 // 改变语言
@@ -107,6 +171,12 @@ const changeLang = async function () {
     }
 }
 
+
+onMounted(function () {
+    // 获取全局语言
+    getLocale()
+})
+
 </script>
 
 <template>
@@ -122,8 +192,10 @@ const changeLang = async function () {
             <p>{{ t('login.msg') }}</p>
     
             <el-form
+                status-icon
+                ref="ruleFormRef"
                 :rules="rules"
-                :model="formLabelAlign"
+                :model="formData"
                 :label-position="labelPosition"
             >
 
@@ -131,7 +203,7 @@ const changeLang = async function () {
                 <el-form-item :label="t('login.mobile')" prop="mobile">
                     <el-input 
                         :placeholder="t('login.placeMobile')"
-                        v-model="formLabelAlign.mobile" 
+                        v-model="formData.mobile" 
                     />
                 </el-form-item>
 
@@ -139,18 +211,31 @@ const changeLang = async function () {
                 <el-form-item :label="t('login.password')" prop="password">
                     <el-input 
                         :placeholder="t('login.placePass')"
-                        v-model="formLabelAlign.password" 
+                        v-model="formData.password" 
                         autocomplete="off"
                         type="password"
                     />
                 </el-form-item>
 
-                <a class="forgot">{{ t('login.question') }}</a>
+                <!-- 登录注册切换 -->
+                <a class="question" @click="loginSign" v-if="loginSignCheck == 'login'"
+                >{{ t('login.question_login') }}</a>
+                <a class="question" @click="loginSign" v-if="loginSignCheck == 'sign'" 
+                >{{ t('login.question_sign') }}</a>
 
                 <!-- 按钮 -->
                 <el-form-item>
-                    <el-button class="submit" type="primary" @click="submitForm" >
+                    <el-button 
+                        class="submit" type="primary" @click="submitForm(ruleFormRef)" 
+                        v-if="loginSignCheck == 'login'" 
+                    >
                         {{ t('login.loginBtn') }}
+                    </el-button>
+                    <el-button 
+                        class="submit" type="primary" @click="submitForm(ruleFormRef)" 
+                        v-if="loginSignCheck == 'sign'" 
+                    >
+                        {{ t('login.signBtn') }}
                     </el-button>
                 </el-form-item>
 
@@ -241,12 +326,13 @@ html {
     height: 35px;
 }
 
-.forgot {
+.question {
     color: #3784ff;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s;
 }
-.forgot:hover {
+.question:hover {
     color: #124ce7;
 }
 

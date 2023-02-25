@@ -40,7 +40,8 @@ export default {
         password: 'Password',
         title: 'Welcome back',
         msg: 'Enter your details',
-        question: `Don't Have a account?`
+        question_login: `Don't Have a account?`,
+        question_sign: 'Already have an account?'
 
     },
     home: {

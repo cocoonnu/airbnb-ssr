@@ -40,7 +40,8 @@ export default {
         password: '密码',
         title: '欢迎',
         msg: '请输入您的信息',
-        question: '需要创建一个账户？'
+        question_login: '需要创建一个账户？',
+        question_sign: '已经有了一个账户？'
 
     },
     home: {

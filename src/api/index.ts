@@ -9,7 +9,7 @@ export const reqgetCategoryList = function () {
 }
 
 
-// mock接口：保存当前语言包
+// mock 接口: 保存当前语言包
 export async function saveLanguageApi(language: any) {
     // 创建 mock 加载效果
     const loading = ElLoading.service({
@@ -36,7 +36,7 @@ export async function saveLanguageApi(language: any) {
     }
 }
 
-// mock接口：查询当前语言包
+// mock 接口: 查询当前语言包
 export async function fetchLanguageApi() {
     // 创建 mock 加载效果
     const loading = ElLoading.service({
