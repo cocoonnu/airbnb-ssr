@@ -13,6 +13,11 @@
     -webkit-text-size-adjust: 100%;
 }
 
+@font-face {
+    font-family: 'Varela Round';
+    src: url("@/assets/fonts/Varela-Round.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;

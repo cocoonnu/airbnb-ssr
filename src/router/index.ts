@@ -34,6 +34,9 @@ router.beforeEach(async function () {
     let result = await airbnbDB.openStore(stores, 'id')
     
     if(result) console.log('所有对象仓库打开成功');
+
+
+    // if()
 }) 
 
 export default router

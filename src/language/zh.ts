@@ -2,7 +2,7 @@ export default {
     header: { // 头部组件
         orders: '房源订单中心',
         records: '历史足迹',
-        language: '语言'
+        language: '语言切换'
     },
     footer: { // 底部组件
         airbnb: '爱彼迎',

@@ -8,9 +8,19 @@ import { ElLoading } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 
 import { fetchLanguageApi, saveLanguageApi } from '@/api/index'
-import { userSignApi, userLoginApi, userLogoutApi } from '@/api/login/index'
+import { userSignApi, userLoginApi } from '@/api/login/index'
 
 import { reactive, ref, onMounted } from 'vue'
+
+import { useStore } from '@/store'
+import { useRouter } from 'vue-router';
+
+
+
+const store = useStore()
+const router = useRouter()
+
+
 
 // 全局语言
 const { t, locale: localeI18n } = useI18n()
@@ -44,14 +54,14 @@ const rules = reactive({
             min: 11,
             max: 11,
             required: true,
+            pattern: /^1[34578]\d{9}$/,
             message: '',
             trigger: 'blur'
         }
     ],
     password: [
         {
-            min: 6,
-            max: 15,
+            pattern: /^[\w]{6,16}$/, // 弱密码
             required: true,
             message: '',
             trigger: 'blur'
@@ -91,11 +101,17 @@ async function submitForm(formEl: FormInstance | undefined) {
             if (result.code == '000003') ElMessage.error('手机号不正确')
             if (result.code == '000004') ElMessage.error('登录失败')
             if (result.code == '000000') {
+                // 将全局的 userStatus 设置为1
+                store.commit('changeUserState', 1)
+
                 ElMessage({
                     message: '登录成功',
                     type: 'success',
                     duration: 1000
                 })
+
+                // 跳转路由
+                setTimeout(() => { router.replace({ name: 'home' }) }, 500)
             }
         }
 

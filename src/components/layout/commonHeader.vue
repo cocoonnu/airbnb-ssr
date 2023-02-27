@@ -6,10 +6,15 @@ import { saveLanguageApi } from '@/api/index'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router';
-const router = useRouter() // 全局 router
+import { useStore } from '@/store'
+
+
+const store = useStore()
+const router = useRouter()
 
 // 全局语言
 const { t, locale } = useI18n()
+
 
 // 自定义事件
 const emit = defineEmits<{
@@ -18,6 +23,10 @@ const emit = defineEmits<{
     (e: 'changeLang', language: any): void
 
 }>()
+
+
+// 用户登录状态
+const userStatus = store.state.userState
 
 
 // el-menu 活跃属性
@@ -69,6 +78,9 @@ const handleSelect = async function(key: string) {
     }
 
     if(key == 'logout') {
+        // 清除用户登录状态
+        store.commit('changeUserState', 0)
+
         router.replace({ name: 'login' })
     }
 }
@@ -78,7 +90,7 @@ const handleSelect = async function(key: string) {
 <template>
     <div class="header-common">
 
-        <img class="logo" src="@/assets/images/layout/logo.png" alt="">
+        <div class="logo">Airbnb Imitate</div>
 
         <el-menu
             :default-active="activeIndex"
@@ -91,19 +103,19 @@ const handleSelect = async function(key: string) {
 
             <el-sub-menu index="language">
                 <template #title>{{ t('header.language') }}</template>
-                <el-menu-item index="zh">中文</el-menu-item>
+                <el-menu-item index="zh">简体中文</el-menu-item>
                 <el-menu-item index="en">English</el-menu-item>
             </el-sub-menu>
 
-            <el-menu-item index="avatar">
-                <div class="avatar"></div>
-            </el-menu-item>
+            <el-sub-menu index="avatar" v-if="userStatus">
+                <template #title><div class="avatar"></div></template>
 
-            <!-- 退出登录按钮 -->
-            <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
+                <!-- 退出登录 -->
+                <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
+            </el-sub-menu>
 
             <!-- 登录按钮 -->
-            <el-menu-item index="login" >
+            <el-menu-item index="login" v-if="!userStatus">
                 {{ t("login.loginTab") }}/{{ t("login.signTab") }}
             </el-menu-item>
 
@@ -123,11 +135,15 @@ const handleSelect = async function(key: string) {
     align-items: center;
 
     .logo {
-        width: 200px;
-        height: auto;
         position: absolute;
         top: 17px;
         left: 15px;
+        width: 200px;
+        height: 44px;
+        text-align: center;
+        line-height: 44px; 
+        font-size: 22px;
+        color: hsl(38, 8%, 8%);
         z-index: 10;
         cursor: pointer;
     }
@@ -160,6 +176,10 @@ const handleSelect = async function(key: string) {
         box-shadow: rgb(235 235 235) 0px 0px 0px 2px;
         background: url('@/assets/images/layout/avatar.jpg') no-repeat;
         background-size: cover;
+    }
+
+    .el-sub-menu__icon-arrow {
+        display: none;
     }
 }
 </style>

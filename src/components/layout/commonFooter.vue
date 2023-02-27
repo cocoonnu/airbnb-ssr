@@ -125,6 +125,7 @@ const footerMenu = reactive(
 
 <style lang="scss">
 .footer-common {
+    margin-top: 10px;
     border-top: 1px solid #ccc;
 
     .inner-footer {
