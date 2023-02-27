@@ -1,9 +1,8 @@
 import { homedir } from 'os'
 import { createRouter } from 'vue-router'
-import { createWebHashHistory } from 'vue-router' // mode: 'hash'
-import { createWebHistory } from 'vue-router' // mode: 'history'
-import { airbnbDB } from '@/db/index';
-import stores from '@/db/index'
+import { createWebHashHistory } from 'vue-router'
+import { createWebHistory } from 'vue-router'
+import { createMemoryHistory } from 'vue-router'
 
 const routes = [
     {
@@ -24,19 +23,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    // history: createWebHashHistory(),
-    history: createWebHistory(),
+    history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
     routes,
 })
-
-
-router.beforeEach(async function () {
-    let result = await airbnbDB.openStore(stores, 'id')
-    
-    if(result) console.log('所有对象仓库打开成功');
-
-
-    // if()
-}) 
 
 export default router
