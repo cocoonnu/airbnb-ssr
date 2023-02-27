@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import commonHeader from '@/components/layout/commonHeader.vue'
-import commonFooter from '@/components/layout/commonFooter.vue';
+import commonFooter from '@/components/layout/commonFooter.vue'
+import homeBody from './homeBody/index.vue'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import { fetchLanguageApi } from '@/api/index'
@@ -30,6 +31,8 @@ getLocale()
         <commonHeader 
             @changeLang="(language: any) => { locale = language }" 
         />
+
+        <homeBody />
 
         <commonFooter />
     </el-config-provider>

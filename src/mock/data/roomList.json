@@ -1,0 +1,259 @@
+[
+    {
+        "id": 1,
+        "title": "森岛小屋长租特惠/杭州东站双地铁口交通便利直达西湖银泰in77武林广场仅15分钟/商圈环绕/萧山机场",
+        "price": 318,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/miso/Hosting-659600087552092324/original/45fe0ffd-7569-4bad-8ccc-620d0a625c65.jpeg?aki_policy=xx_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-659600087552092324/original/f43c6389-a320-448a-bd6c-9fce83a40bc8.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-659600087552092324/original/502efe05-a55c-4ab7-ad78-a6dac63d3841.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-659600087552092324/original/3fd8c35b-1359-4bb4-a78f-ac1f1c3e5c7e.jpeg?aki_policy=x_large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 2,
+                "remarks": 15,
+                "goodOwner": true,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/3b8a434d-5a2a-4f8a-9d33-ad6efffe4186.jpg?aki_policy=profile_x_medium",
+                "name": "小宝石",
+                "mobile": 13277081378,
+                "certify": true,
+                "introduce": "一套坐落于杭州东站对面的温馨小屋/是上下两层的复式loft/地理位置优越 交通便利，走五分钟就是杭州东站 周边1号线4号线地铁/楼下万象汇商圈，星巴克/奈雪，火锅奶茶吃喝玩乐应有尽有\n期间亲力亲为的去装饰房间的每一个角落，希望把房间最好的一面展现给每一位住进这个房间的客人，虽然房间还有很多不尽人意的地方，但也都在慢慢改进，我想让客人们进到房间有一种回了家的感觉，床也配上了较优质的枕芯/被芯与高质量舒适的家用四件套用品是想每一位客人把他当作自己在杭州的一个小小的家一样去体验、去爱惜、去珍惜。想这里真的作为民宿，而不是一个主题酒店的形式展现在你们面前，想这里是一个充满人情味的温暖的小屋。"
+            }
+        }
+    },
+    {
+        "id": 2,
+        "title": "【晚秋】近西湖大两室一厅、定安路地铁口～直达西湖银泰、河坊街.南宋御街.",
+        "price": 217,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/miso/Hosting-29172819/original/8dae018e-ee08-4956-ab90-4a451e96e424.jpeg?aki_policy=xx_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-29172819/original/1babdf09-e230-475b-a5a1-15322b5c8322.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-29172819/original/8dae018e-ee08-4956-ab90-4a451e96e424.jpeg?aki_policy=xx_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-29172819/original/aa09a8ed-3010-451b-af6b-0b3579b38c7d.jpeg?aki_policy=x_large"
+            ],
+            "info": {
+                "room": 2,
+                "bed": 3,
+                "toilet": 1,
+                "liveNumber": 4,
+                "remarks": 1,
+                "goodOwner": false,
+                "parking": false,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/c41690e9-a7de-4449-a067-1bfb93b32e16.jpg?aki_policy=profile_x_medium",
+                "name": "王先生",
+                "mobile": 13277081379,
+                "certify": true,
+                "introduce": "房子属于杭州市中心的老房子，标准两室一厅一厨一卫，两张1.8米大床！卫生间超级大！洗澡很舒服！房子出门就是西湖银泰，不行可到吴山广场、西湖边，非常方便"
+            }
+        }
+    },
+    {
+        "id": 32,
+        "title": "【晚秋】近玄武湖大两室一厅、定安路地铁口～直达玄武湖银泰.",
+        "price": 217,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/da836e42-cf1c-4dce-a6b6-b6780df104dc.jpg?aki_policy=large",
+        "cityCode": "nj",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/da836e42-cf1c-4dce-a6b6-b6780df104dc.jpg?aki_policy=xx_large",
+                "https://z1.muscache.cn/im/pictures/6f679bc4-5a99-46e1-ba2d-84b545812692.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/ffa51826-6af2-4a38-a38f-061bb34c0bdd.jpg?aki_policy=large"
+            ],
+            "info": {
+                "room": 2,
+                "bed": 3,
+                "toilet": 1,
+                "liveNumber": 4,
+                "remarks": 1,
+                "goodOwner": false,
+                "parking": false,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/c41690e9-a7de-4449-a067-1bfb93b32e16.jpg?aki_policy=profile_x_medium",
+                "name": "王先生",
+                "mobile": 13277081379,
+                "certify": true,
+                "introduce": "房子属于南京市中心的老房子，标准两室一厅一厨一卫，两张1.8米大床！卫生间超级大！洗澡很舒服！房子出门就是玄武湖银泰，不行可到吴山广场、玄武湖边，非常方便"
+            }
+        }
+    },
+    {
+        "id": 3,
+        "title": "西湖200米武林夜市/省儿保旁两室三床",
+        "price": 223,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/3581a7b8-9aa3-473c-a487-948a8cb0e5b2.jpg?aki_policy=xx_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/8ad06944-381f-4e2d-975a-0eef479fceff.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/4811d53a-e8cb-44a0-8624-487e40d67a7b.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/3581a7b8-9aa3-473c-a487-948a8cb0e5b2.jpg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 2,
+                "bed": 3,
+                "toilet": 1,
+                "liveNumber": 5,
+                "remarks": 1,
+                "goodOwner": false,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/dc653a14-3a5a-4693-b8e7-23b293b19765.jpg?aki_policy=profile_x_medium",
+                "name": "新居杭州区一",
+                "mobile": 15298081379,
+                "certify": true,
+                "introduce": "有专人打扫，一客一换，确保您在旅途中的舒适体验。"
+            }
+        }
+    },
+    {
+        "id": 4,
+        "title": "猫咛民宿杭州【星光】西湖零距离/in77湖滨银泰/南山路/河坊街/武林夜市/中国美术学院/一居",
+        "price": 203,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?aki_policy=xx_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-47721565/original/da951ef9-3fed-4c15-b4b8-2cd5b24357a9.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 3,
+                "remarks": 100,
+                "goodOwner": false,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/8bc752e6-514d-4899-80a8-a24cb93d779e.jpg?aki_policy=profile_x_medium",
+                "name": "猫妞",
+                "mobile": 19098081379,
+                "certify": true,
+                "introduce": "夏天的梦，是什么颜色的...弥漫着花香的小巷，树荫下的风，还有女孩子飞扬的裙角和满眼的绿，带着阳光和果香；晚风轻轻吹动窗台的帘子，暮色朦胧，躺着打会儿瞌睡，舒适到差点就要决定这样过；有人在夜市或者小吃摊的烟火气中长歌纵酒，也有人眼波流转，迎面撞进夏日晚风，一起吹过晚风 的人大概会记得很久吧.....一群人相遇相知相惜，人与人都在改变告别，没觉得遗憾，却也期待圆满. “嗨，真的很高兴遇见你！让我为你介绍我们的房源。”\n星光这套房源是一室一厅一厨一卫，有一个很大的用餐空间，面积有40平方，在小区二楼，是杭州西湖边市中心的老住宅小区，这里充满老杭州的文化气息。 投影、 网红秋千椅，餐桌椅，约上三俩好友，或者亲人，一起烹饪，一起晚餐，一起看电影，这一定是个美好的夜晚.... 厨房可以做饭，有个冰箱，还有滚筒式洗衣机，宝宝们做完饭记得清理干净厨房哦，谢谢！浴室有暖灯，设备都非常齐全。"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "title": "【Marcel】市中心稀缺户型*顶层景观采光极佳*现代包豪斯设计公寓、步行至银泰、杭州大厦*高清投影",
+        "price": 235,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/prohost-api/Hosting-34444025/original/f88dc1ea-9108-47ab-8d22-4753da025562.jpeg?aki_policy=x_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/prohost-api/Hosting-34444025/original/f88dc1ea-9108-47ab-8d22-4753da025562.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/prohost-api/Hosting-34444025/original/e724ddba-9e43-4942-96cc-0e3bddd07ec4.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/prohost-api/Hosting-34444025/original/cae4b265-0ab6-4993-9eef-0274b187b116.jpeg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 2,
+                "remarks": 26,
+                "goodOwner": false,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/44a645f1-93b2-4daa-b4f4-94c19988d8a7.jpg?aki_policy=profile_x_medium",
+                "name": "Cavin",
+                "mobile": 17098081379,
+                "certify": true,
+                "introduce": "市中心黄金地段，闹中取静，公区环境干净整洁，公寓楼配有宽敞的大厅、咖啡吧、餐厅、洗衣房、健身房，公寓门口有24小时值班的安保人员，公寓有地下收费停车场，方便停车。周边100米内就有超市、生鲜水果店、药店，让生活更加便捷。\n步行300米就可到达武林银泰，国大城市广场、杭州大厦购物中心、杭州剧院约300至500米步行距离，步行15分钟就能到达杭州嘉里中心，沿路有很多餐厅、酒吧、咖啡厅、服装店买手店、精品店，地铁2站直达西湖和in77\n附近更有热闹繁华的武林夜市，可以在此享受杭州丰富的夜生活～"
+            }
+        }
+    },
+    {
+        "id": 31,
+        "title": "【Marcel】市中心稀缺户型*顶层景观采光极佳*现代包豪斯设计公寓、步行至银泰、杭州大厦*高清投影",
+        "price": 517,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/3ec83a54-abbe-414f-b4cc-07d2e295e5a6.jpg?aki_policy=large",
+        "cityCode": "nj",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/3ec83a54-abbe-414f-b4cc-07d2e295e5a6.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/6ea2c089-30ec-4fef-af89-044e4f740d82.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/dc021bc1-aa10-4dce-ab9b-9f0415b4e9b2.jpg?aki_policy=large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 2,
+                "remarks": 26,
+                "goodOwner": false,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/44a645f1-93b2-4daa-b4f4-94c19988d8a7.jpg?aki_policy=profile_x_medium",
+                "name": "Cavin",
+                "mobile": 17098081379,
+                "certify": true,
+                "introduce": "市中心黄金地段，闹中取静，公区环境干净整洁，公寓楼配有宽敞的大厅、咖啡吧、餐厅、洗衣房、健身房，公寓门口有24小时值班的安保人员，公寓有地下收费停车场，方便停车。周边100米内就有超市、生鲜水果店、药店，让生活更加便捷。\n步行300米就可到达武林银泰，国大城市广场、杭州大厦购物中心、杭州剧院约300至500米步行距离，步行15分钟就能到达杭州嘉里中心，沿路有很多餐厅、酒吧、咖啡厅、服装店买手店、精品店，地铁2站直达西湖和in77\n附近更有热闹繁华的武林夜市，可以在此享受杭州丰富的夜生活～"
+            }
+        }
+    },
+    {
+        "id": 6,
+        "title": "『物语』小阁楼一居近西湖/河坊街/吴山广场/五柳巷历史街区/城站地铁口/市三医院",
+        "price": 211,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/0a6ed1ce-83ba-4ab2-bf94-70e911373ab8.jpg?aki_policy=x_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/0a6ed1ce-83ba-4ab2-bf94-70e911373ab8.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/29a0069a-28d9-4fa9-914c-0cffa6bca754.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/52d8dc82-66cc-4edd-8457-2bf158067077.jpg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 3,
+                "bed": 2,
+                "toilet": 1,
+                "liveNumber": 5,
+                "remarks": 87,
+                "goodOwner": false,
+                "parking": true,
+                "metro": false,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/d276e378-d249-43cb-b921-4eb8d97404d8.jpg?aki_policy=profile_x_medium",
+                "name": "荀子",
+                "mobile": 17098081379,
+                "certify": false,
+                "introduce": "街区内以居民为主，充满市井气息，至今仍保持着老杭州人滨水而居的生活方式。五柳巷历史街区，悄然隐身在西湖大道、市三医院、杭州城站火车站的交汇处，在人流如梭、车水马龙的繁华喧嚣的街区中，五柳巷历史街区固守着自己的宁静。沿着东河慢慢地走，黑瓦白墙，小桥流水，走在东河畔的一片老房子的附近，还可以看到树梢上、屋檐下悬挂着许多五颜六色的风车、纸鹤。你再慢慢的走又会发现在白色墙壁上的各种涂鸦，为这片宁静的街区平添了几分浪漫和童趣。闲走于小巷子中能感受到慢生活的节奏，能看到年长的大爷们坐在躺椅上晒太阳话家常，悠闲自得。到了杭州不妨到这样有历史痕迹和故事的街区里走走吧。"
+            }
+        }
+    }
+]
+

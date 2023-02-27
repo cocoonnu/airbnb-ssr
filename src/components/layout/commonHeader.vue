@@ -107,8 +107,8 @@ const handleSelect = async function(key: string) {
                 <el-menu-item index="en">English</el-menu-item>
             </el-sub-menu>
 
-            <el-sub-menu index="avatar" v-if="userStatus">
-                <template #title><div class="avatar"></div></template>
+            <el-sub-menu index="avatar" v-if="userStatus" class="avatar-menu">
+                <template #title>用户选项</template>
 
                 <!-- 退出登录 -->
                 <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
@@ -127,12 +127,12 @@ const handleSelect = async function(key: string) {
 
 <style lang="scss">
 .header-common {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 80px;
-    position: relative;
-    align-items: center;
 
     .logo {
         position: absolute;
@@ -143,6 +143,7 @@ const handleSelect = async function(key: string) {
         text-align: center;
         line-height: 44px; 
         font-size: 22px;
+        font-family: 'Varela Round', sans-serif;
         color: hsl(38, 8%, 8%);
         z-index: 10;
         cursor: pointer;
@@ -150,36 +151,25 @@ const handleSelect = async function(key: string) {
 
     .el-menu {
         width: inherit;
+        height: 80px;
         padding: 0 25px;
         justify-content: right;
-        height: 80px;
         align-items: center;
 
         .el-menu-item {
             height: 80px;
             font-size: 16px;
-
-            &:last-child {
-                padding-right: 0;
-            }
         }
          
+        // el-sub-menu字体大小强制16px
         .el-sub-menu .el-sub-menu__title {
-            font-size: 16px!important;
+            font-size: 16px;
         }
-    }
 
-    .avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        box-shadow: rgb(235 235 235) 0px 0px 0px 2px;
-        background: url('@/assets/images/layout/avatar.jpg') no-repeat;
-        background-size: cover;
-    }
-
-    .el-sub-menu__icon-arrow {
-        display: none;
+        // el-sub-menu图标样式
+        .el-sub-menu__icon-arrow {
+            display: none;
+        }
     }
 }
 </style>

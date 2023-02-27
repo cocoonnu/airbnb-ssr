@@ -25,10 +25,7 @@ async function createServer() {
 
         try {
             // 1. 读取 index.html
-            let template = fs.readFileSync(
-                path.resolve(__dirname, 'index.html'),
-                'utf-8',
-            )
+            let template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
 
             // 2. 应用 Vite HTML 转换。这将会注入 Vite HMR 客户端，
             //    同时也会从 Vite 插件应用 HTML 转换。
@@ -58,7 +55,9 @@ async function createServer() {
         }
     })
 
-    app.listen(5173)
+    app.listen(5173, function() {
+        console.log('服务端渲染进行中...');
+    })
 }
 
 createServer()

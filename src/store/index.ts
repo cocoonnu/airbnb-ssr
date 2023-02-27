@@ -1,9 +1,13 @@
-import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { InjectionKey } from 'vue'
+import { createStore, Store, useStore as baseUseStore } from 'vuex'
+import { reqgetRoomList } from '@/api/home/index'
+import { ElMessage } from 'element-plus'
+
 
 // 声明仓库数据类型
 export interface AllStateTypes {
-    userState: number
+    userState: number,
+    roomList: Array<any>,
 }
 
 
@@ -20,7 +24,12 @@ export function useStore() {
 // 导出 store
 export const store = createStore({
     state: {
-        userState: 0
+        userState: 0,
+        roomList: []
+    },
+
+    getters: {
+        
     },
 
     mutations: {
@@ -30,7 +39,17 @@ export const store = createStore({
     },
 
     actions: {
+        async getRoomList({ state }) {
+            let result = await reqgetRoomList()
+            console.log(result);
+            
 
+            if (result.code == '000000') {
+                state.roomList = result.data
+            } else {
+                ElMessage.error('获取房屋列表失败')
+            }
+        }
     },
 
     modules: {
