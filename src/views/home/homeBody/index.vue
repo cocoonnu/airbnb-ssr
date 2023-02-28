@@ -1,14 +1,16 @@
-<script setup lang="ts">
-import { onMounted, reactive,computed } from 'vue';
+<script lang="ts">
+import { onMounted, computed } from 'vue';
 import { useStore } from '@/store'
-const store = useStore()
 
-let roomList = computed(() => store.state.roomList)
+export default ({
+    setup() {
+        const store = useStore()
 
-onMounted(async function () {
-    await store.dispatch('getRoomList')
+        let roomList = computed(() => store.state.roomList)
+
+        return { store, roomList }
+    },
 })
-
 
 </script>
 

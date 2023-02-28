@@ -9,7 +9,6 @@ export const reqgetCategoryList = function () {
 }
 
 
-
 // mock 接口: 保存当前语言包
 export async function saveLanguageApi(language: any) {
     // 创建 mock 加载效果
@@ -36,6 +35,7 @@ export async function saveLanguageApi(language: any) {
         return { code: '204', message: '失败', data: '切换语言失败', ok: false }
     }
 }
+
 
 // mock 接口: 查询当前语言包
 export async function fetchLanguageApi() {

@@ -10,11 +10,16 @@ import { ElMessage } from 'element-plus'
 
 const { app, router, store } = createApp()
 
+if ((window as any).__INITIAL_STATE__) {
+    store.replaceState((window as any).__INITIAL_STATE__)
+}
+
+
 router.beforeEach(async function (to, from, next) {
 
     // 打开所有仓库
     let result = await airbnbDB.openStore(stores, 'id')
-    if (result) console.log('所有对象仓库打开成功');
+    // if (result) console.log('所有对象仓库打开成功');
 
 
     // 查询并保存全局语言
@@ -27,16 +32,7 @@ router.beforeEach(async function (to, from, next) {
     store.commit('getUserStatus', status)
 
     next()
-
-    // 阻止登录用户进入登录页
-    // if (to.path == '/login' ) {
-
-        
-
-    // } else {
-    //     next()
-    // }
-
+    
 }) 
 
 
