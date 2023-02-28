@@ -138,6 +138,10 @@ const footerMenu = reactive(
             li {
                 @include flex-layout(column, space-between, flex-start);
 
+                h3 {
+                    margin-bottom: 15px;
+                }
+
                 a {
                     color: #999;
                     text-decoration: none;

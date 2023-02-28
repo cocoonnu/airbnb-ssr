@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 import en from 'element-plus/lib/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import { saveLanguageApi } from '@/api/index'
+import { userLogoutApi } from '@/api/login/index'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router';
@@ -78,8 +79,15 @@ const handleSelect = async function(key: string) {
     }
 
     if(key == 'logout') {
-        // 清除用户登录状态
-        store.commit('changeUserState', 0)
+
+        // 调用登出接口
+        await userLogoutApi()
+
+        ElMessage({
+            message: '登出成功',
+            type: 'success',
+            duration: 1000
+        })
 
         router.replace({ name: 'login' })
     }
@@ -108,7 +116,7 @@ const handleSelect = async function(key: string) {
             </el-sub-menu>
 
             <el-sub-menu index="avatar" v-if="userStatus" class="avatar-menu">
-                <template #title>用户选项</template>
+                <template #title>{{ t('header.setting') }}</template>
 
                 <!-- 退出登录 -->
                 <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
@@ -169,6 +177,10 @@ const handleSelect = async function(key: string) {
         // el-sub-menu图标样式
         .el-sub-menu__icon-arrow {
             display: none;
+        }
+
+        .el-sub-menu.is-active .el-sub-menu__title {
+            border-bottom-color: #fff;
         }
     }
 }

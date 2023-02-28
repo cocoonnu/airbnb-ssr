@@ -53,10 +53,6 @@ export async function fetchLanguageApi() {
     // 加载结束
     setTimeout(() => { loading.close() }, 200)
 
-    if (result) {
-        return { code: '200', message: '成功', data: result, ok: true }
-    } else {
-        return { code: '204', message: '失败', data: false, ok: false }
-    }
+    return result ? result.language : 'zh'
 }
 

@@ -82,10 +82,12 @@ export async function userLoginApi(params: any) {
             correct = true
             codeData = '000000' // 成功
 
-            // 成功后设置该用户 token 并更新状态
+            // 保存 token
             const token = (new Date()).getTime() + ''
-            const obj = { status: 1, token, id: user.id }
             localStorage.setItem('usertoken', token)
+
+            // 更新状态 status
+            const obj = { status: 1, token, id: user.id }
             Object.assign(params, obj)
 
             // 更新数据库中用户数据
@@ -122,13 +124,12 @@ export async function userLogoutApi() {
 
     // 获取当前登录用户的 usertoken
     const token = localStorage.getItem('usertoken')
-    let hasToken = false
 
     // 更新当前用户状态
     usersData.map(async function (user) {
         if (user.token == token) {
-            hasToken = true
             
+            // 删除 token
             localStorage.removeItem('usertoken');
             Object.assign(user, { status: 0, token: '' })
 
@@ -140,10 +141,5 @@ export async function userLogoutApi() {
     // 加载结束
     setTimeout(() => { loading.close() }, 500)
 
-    if(hasToken) {
-        return { code: '000000', message: '成功', data: true, ok: true }
-    } else {
-        return { code: '000004', message: '失败', data: false, ok: false }
-    }
-
+    return true
 } 

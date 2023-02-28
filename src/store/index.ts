@@ -8,6 +8,7 @@ import { ElMessage } from 'element-plus'
 export interface AllStateTypes {
     userState: number,
     roomList: Array<any>,
+    language: string,
 }
 
 
@@ -21,37 +22,52 @@ export function useStore() {
 }
 
 
-// 导出 store
-export const store = createStore({
-    state: {
-        userState: 0,
-        roomList: []
-    },
+export function createSSRStore() {
 
-    getters: {
-        
-    },
+    return createStore({
+        state: {
+            userState: 0,
+            roomList: [],
+            language: 'zh',
+        },
 
-    mutations: {
-        changeUserState(state, value) {
-            state.userState = value
-        }
-    },
+        getters: {
 
-    actions: {
-        async getRoomList({ state }) {
-            let result = await reqgetRoomList()
-            console.log(result);
-            
+        },
 
-            if (result.code == '000000') {
-                state.roomList = result.data
-            } else {
-                ElMessage.error('获取房屋列表失败')
+        mutations: {
+
+            fetchLanguage(state, value) {
+                state.language = value
+            },
+
+            getUserStatus(state, value) {
+                state.userState = value
             }
-        }
-    },
 
-    modules: {
-    }
-})
+        },
+
+        actions: {
+
+            async getRoomList({ state }) {
+                let result = await reqgetRoomList()
+                console.log(result);
+
+
+                if (result.code == '000000') {
+                    state.roomList = result.data
+                } else {
+                    ElMessage.error('获取房屋列表失败')
+                }
+            }
+
+        },
+
+        modules: {
+        }
+    })
+
+}
+
+
+

@@ -1,0 +1,32 @@
+    {
+        "id": 7,
+        "title": "【安隅•风月与星】西湖边的复式小阁楼/大投影/定安路50米/西湖边的一室/复古风雷峰塔灵隐寺城隍阁",
+        "price": 263,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/2a9197cc-79c3-46e3-8904-8daeed2b3dc4.jpg?aki_policy=x_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/2a9197cc-79c3-46e3-8904-8daeed2b3dc4.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/c70f246c-876e-4f5e-9ff9-d3d50309ec2c.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/4595e1b4-1f7a-4cf5-9f3d-c84075a00beb.jpg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 1,
+                "remarks": 17,
+                "goodOwner": false,
+                "parking": true,
+                "metro": false,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/25b0c570-557b-481d-9ef9-45b0559ae3a0.jpg?aki_policy=profile_x_medium",
+                "name": "呜呜",
+                "mobile": 17090081379,
+                "certify": true,
+                "introduce": "我们在西湖边长期经营，也认识了好多有特色、高品质的商家，未来我们也会和他们达成合作。我们会提供保姆级旅游攻略，或者根据行程时间定制游攻略，让杭州行像是回家一样轻松。"
+            }
+        }
+    }

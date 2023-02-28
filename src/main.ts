@@ -1,21 +1,27 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import './style.css'
-import router from './router'
-import { store, key } from './store'
+
+import { createSSRRouter } from './router'
+import { createSSRStore, key } from './store'
+
 import ElementPlus from 'element-plus'
 import { ID_INJECTION_KEY } from 'element-plus'
 import 'element-plus/dist/index.css'
+
 import i18n from '@/language/i18n'
+
 import '@/mock/mockServe'
 
 export function createApp() {
     const app = createSSRApp(App)
     
     // 路由
+    const router = createSSRRouter()
     app.use(router)
     
     // vuex
+    const store = createSSRStore()
     app.use(store, key)
     
     // ElementPlus
@@ -28,7 +34,7 @@ export function createApp() {
     // 语言配置
     app.use(i18n)
 
-    return { app, router }
+    return { app, router, store }
 }
 
 // import { createSSRApp } from 'vue'

@@ -2,7 +2,8 @@ export default {
     header: { // 头部组件
         orders: 'Housing order center',
         records: 'The historical footprints',
-        language: 'Language'
+        language: 'Language',
+        setting: 'setting'
     },
     footer: { // 底部组件
         airbnb: 'Airbnb',

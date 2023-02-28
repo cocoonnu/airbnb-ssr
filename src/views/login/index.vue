@@ -10,11 +10,10 @@ import type { FormInstance } from 'element-plus'
 import { fetchLanguageApi, saveLanguageApi } from '@/api/index'
 import { userSignApi, userLoginApi } from '@/api/login/index'
 
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref } from 'vue'
 
 import { useStore } from '@/store'
 import { useRouter } from 'vue-router';
-
 
 
 const store = useStore()
@@ -26,15 +25,10 @@ const router = useRouter()
 const { t, locale: localeI18n } = useI18n()
 const locale = ref(zhCn)
 
-
-// 获取全局语言
-async function getLocale() {
-    let result: any = await fetchLanguageApi()
-
-    if (result.code == 200 && result.data.language == 'en') {
-        locale.value = en
-        localeI18n.value = 'en'
-    }
+// 刷新之后判断
+if (store.state.language == 'en') {
+    locale.value = en
+    localeI18n.value = 'en'
 }
 
 
@@ -102,7 +96,7 @@ async function submitForm(formEl: FormInstance | undefined) {
             if (result.code == '000004') ElMessage.error('登录失败')
             if (result.code == '000000') {
                 // 将全局的 userStatus 设置为1
-                store.commit('changeUserState', 1)
+                // store.commit('changeUserState', 1)
 
                 ElMessage({
                     message: '登录成功',
@@ -148,7 +142,7 @@ function loginSign() {
 const changeLang = async function () {
     let lang: any = await fetchLanguageApi()
     
-    if (lang.data.language == 'en') {
+    if (lang == 'en') {
         let result: any = await saveLanguageApi('zh')
         
 
@@ -167,7 +161,7 @@ const changeLang = async function () {
         }
     }
 
-    if (lang.data.language == 'zh' || !lang.data) {
+    if (lang == 'zh' || !lang) {
 
         let result: any = await saveLanguageApi('en')
 
@@ -187,11 +181,6 @@ const changeLang = async function () {
     }
 }
 
-
-onMounted(function () {
-    // 获取全局语言
-    getLocale()
-})
 
 </script>
 
