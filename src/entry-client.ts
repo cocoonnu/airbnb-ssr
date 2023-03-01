@@ -14,6 +14,10 @@ if ((window as any).__INITIAL_STATE__) {
     store.replaceState((window as any).__INITIAL_STATE__)
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
 router.beforeEach(async function (to, from, next) {
 
     // 打开所有仓库
@@ -31,6 +35,10 @@ router.beforeEach(async function (to, from, next) {
     store.commit('getUserStatus', status)
 
     next()
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
 }) 
 
 

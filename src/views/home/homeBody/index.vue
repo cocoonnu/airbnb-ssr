@@ -1,13 +1,28 @@
+<<<<<<< HEAD
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import { useStore } from '@/store'
 
 const store = useStore()
+=======
+<script lang="ts">
+import { onMounted, computed } from 'vue';
+import { useStore } from '@/store'
+>>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
 
-let roomList = computed(() => store.state.roomList)
+export default ({
+    setup() {
+        const store = useStore()
 
+<<<<<<< HEAD
 onMounted(async function() {
     await store.dispatch('getRoomList')
+=======
+        let roomList = computed(() => store.state.roomList)
+
+        return { store, roomList }
+    },
+>>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
 })
 
 </script>
