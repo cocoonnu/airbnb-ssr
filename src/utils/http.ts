@@ -25,7 +25,7 @@ class Http {
     private httpInterceptorsRequest() {
         Http.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
             // 发送请求前可以做的事
-            nprogress.start();
+            // nprogress.start();
 
             return config
         }, err => {
@@ -37,11 +37,11 @@ class Http {
     private httpInterceptorsResponse() {
         Http.axiosInstance.interceptors.response.use((response: AxiosResponse) => {
             // 响应前可以做的事
-            nprogress.done();
+            // nprogress.done();
 
             return response
         }, err => {
-            nprogress.done();
+            // nprogress.done();
 
             console.log('发送请求失败，请检查 api 接口');
             return Promise.reject(err)

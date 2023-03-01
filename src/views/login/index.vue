@@ -277,7 +277,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('@/assets/images/login/wave.png');
+    background-image: url('@/assets/images/login/wave2.png');
     background-size: cover;
     animation: move 10s linear alternate infinite;
 }
@@ -357,7 +357,7 @@ html {
     width: 60px;
     height: 60px;
     top: 0px;
-    right: 0px;
+    right: 5px;
     background: url('@/assets/images/login/changeLang.png') no-repeat;
     background-size: cover;
     cursor: pointer;

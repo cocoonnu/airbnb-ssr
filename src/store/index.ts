@@ -1,6 +1,7 @@
 import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { reqgetRoomList } from '@/api/home/index'
+import { reqgetCategoryList } from '@/api/index'
 import { ElMessage } from 'element-plus'
 
 
@@ -9,6 +10,7 @@ export interface AllStateTypes {
     userState: number,
     roomList: Array<any>,
     language: string,
+    categoryList: Array<any>
 }
 
 
@@ -29,6 +31,7 @@ export function createSSRStore() {
             userState: 0,
             roomList: [],
             language: 'zh',
+            categoryList: []
         },
 
         getters: {
@@ -51,14 +54,18 @@ export function createSSRStore() {
 
             async getRoomList({ state }) {
                 let result = await reqgetRoomList()
-                console.log(result);
-
 
                 if (result.code == '000000') {
                     state.roomList = result.data
                 } else {
                     ElMessage.error('获取房屋列表失败')
                 }
+            },
+
+            async getCategoryList({ state }) {
+                let result = await reqgetCategoryList()
+
+                if (result.code == 200) state.categoryList = result.data
             }
 
         },

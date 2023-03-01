@@ -9,6 +9,8 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store'
 
+import ClientOnly from '@duannx/vue-client-only'
+
 
 const store = useStore()
 const router = useRouter()
@@ -75,7 +77,7 @@ const handleSelect = async function(key: string) {
     }
 
     if(key == 'login') {
-        router.replace({ name: 'login' })
+        router.push({ name: 'login' })
     }
 
     if(key == 'logout') {
@@ -89,7 +91,7 @@ const handleSelect = async function(key: string) {
             duration: 1000
         })
 
-        router.replace({ name: 'login' })
+        router.push({ name: 'login' })
     }
 }
 
@@ -99,35 +101,35 @@ const handleSelect = async function(key: string) {
     <div class="header-common">
 
         <div class="logo">Airbnb Imitate</div>
+     
+        <client-only>
+            <el-menu
+                :default-active="activeIndex"
+                mode="horizontal"
+                @select="handleSelect"
+            >
+                <el-menu-item index="orders">{{ t('header.orders') }}</el-menu-item>
+                <el-menu-item index="records">{{ t('header.records') }}</el-menu-item>
 
-        <el-menu
-            :default-active="activeIndex"
-            class="el-menu-demo"
-            mode="horizontal"
-            @select="handleSelect"
-        >
-            <el-menu-item index="orders">{{ t('header.orders') }}</el-menu-item>
-            <el-menu-item index="records">{{ t('header.records') }}</el-menu-item>
+        
+                <el-sub-menu index="language">
+                    <template #title>{{ t('header.language') }}</template>
+                    <el-menu-item index="zh">简体中文</el-menu-item>
+                    <el-menu-item index="en">English</el-menu-item>
+                </el-sub-menu>
 
-            <el-sub-menu index="language">
-                <template #title>{{ t('header.language') }}</template>
-                <el-menu-item index="zh">简体中文</el-menu-item>
-                <el-menu-item index="en">English</el-menu-item>
-            </el-sub-menu>
+        
+                <el-menu-item index="logout" v-if="userStatus">
+                    {{ t("login.logout") }}
+                </el-menu-item>
 
-            <el-sub-menu index="avatar" v-if="userStatus" class="avatar-menu">
-                <template #title>{{ t('header.setting') }}</template>
-
-                <!-- 退出登录 -->
-                <el-menu-item index="logout" >{{ t("login.logout") }}</el-menu-item>
-            </el-sub-menu>
-
-            <!-- 登录按钮 -->
-            <el-menu-item index="login" v-if="!userStatus">
-                {{ t("login.loginTab") }}/{{ t("login.signTab") }}
-            </el-menu-item>
-
-        </el-menu>
+        
+                <el-menu-item index="login" v-if="!userStatus">
+                    {{ t("login.loginTab") }}/{{ t("login.signTab") }}
+                </el-menu-item>
+        
+            </el-menu>
+        </client-only>
 
     </div>
 
@@ -135,7 +137,6 @@ const handleSelect = async function(key: string) {
 
 <style lang="scss">
 .header-common {
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,9 +144,6 @@ const handleSelect = async function(key: string) {
     height: 80px;
 
     .logo {
-        position: absolute;
-        top: 17px;
-        left: 15px;
         width: 200px;
         height: 44px;
         text-align: center;
@@ -153,16 +151,13 @@ const handleSelect = async function(key: string) {
         font-size: 22px;
         font-family: 'Varela Round', sans-serif;
         color: hsl(38, 8%, 8%);
-        z-index: 10;
         cursor: pointer;
     }
 
     .el-menu {
-        width: inherit;
         height: 80px;
-        padding: 0 25px;
-        justify-content: right;
         align-items: center;
+        margin-right: 10px;
 
         .el-menu-item {
             height: 80px;

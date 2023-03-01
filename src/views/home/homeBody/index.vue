@@ -71,7 +71,7 @@ onMounted(async function () {
         justify-content: flex-start;
         align-content: flex-start;
         flex-wrap: wrap;
-        gap: 40px 25px;
+        gap: 50px 33px;
         margin-top: 40px;
 
         .home-item {
