@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 // 进度条
-import nprogress from 'nprogress'
-import 'nprogress/nprogress.css';
+// import nprogress from 'nprogress'
+// import 'nprogress/nprogress.css';
 
 
 const defaultConfig = {

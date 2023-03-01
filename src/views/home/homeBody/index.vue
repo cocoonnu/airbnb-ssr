@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { onMounted, reactive,computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useStore } from '@/store'
+
 const store = useStore()
 
 let roomList = computed(() => store.state.roomList)
 
-onMounted(async function () {
+onMounted(async function() {
     await store.dispatch('getRoomList')
 })
-
 
 </script>
 

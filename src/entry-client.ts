@@ -31,7 +31,6 @@ router.beforeEach(async function (to, from, next) {
     store.commit('getUserStatus', status)
 
     next()
-
 }) 
 
 

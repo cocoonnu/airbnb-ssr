@@ -4,6 +4,9 @@ import { reqgetRoomList } from '@/api/home/index'
 import { reqgetCategoryList } from '@/api/index'
 import { ElMessage } from 'element-plus'
 
+import { reqgetRoomList } from '@/api/home/index'
+import { reqgetCategoryList } from '@/api/index'
+
 
 // 声明仓库数据类型
 export interface AllStateTypes {
