@@ -1,10 +1,7 @@
 import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
-<<<<<<< HEAD
 import { reqgetRoomList } from '@/api/home/index'
 import { reqgetCategoryList } from '@/api/index'
-=======
->>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
 import { ElMessage } from 'element-plus'
 
 import { reqgetRoomList } from '@/api/home/index'
@@ -71,14 +68,7 @@ export function createSSRStore() {
             async getCategoryList({ state }) {
                 let result = await reqgetCategoryList()
 
-<<<<<<< HEAD
                 if (result.code == 200) state.categoryList = result.data
-=======
-                if (result.code == 200) {
-                    state.categoryList = result.data
-                }
-                
->>>>>>> 17407da469eef09af5a37f87857599579f9bbfc6
             }
 
         },
