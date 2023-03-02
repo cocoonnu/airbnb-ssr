@@ -51,12 +51,13 @@ class Http {
 
     // 封装 get/post 请求函数
     public httpRequestGet<T>(url: string, params: AxiosRequestConfig): Promise<T> {
-        return Http.axiosInstance.get(url, params).then(res => res.data).catch()
+        return Http.axiosInstance.get(url, { params }).then(res => res.data).catch()
     }
 
     public httpRequestPost<T>(url: string, params: AxiosRequestConfig): Promise<T> {
         return Http.axiosInstance.post(url, params).then(res => res.data).catch()
     }
+
 }
 
 // 导出 http 实例

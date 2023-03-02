@@ -6,7 +6,8 @@ import { saveLanguageApi } from '@/api/index'
 import { userLogoutApi } from '@/api/login/index'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router';
+
+import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 
 import ClientOnly from '@duannx/vue-client-only'
@@ -141,13 +142,15 @@ const handleSelect = async function(key: string) {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 80px;
+    height: 70px;
+    overflow: hidden;
 
     .logo {
         width: 200px;
         height: 44px;
         text-align: center;
         line-height: 44px; 
+        margin-left: 10px;
         font-size: 22px;
         font-family: 'Varela Round', sans-serif;
         color: hsl(38, 8%, 8%);

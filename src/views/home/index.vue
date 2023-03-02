@@ -33,7 +33,8 @@ export default({
     },
 
     async asyncData({ store }: any) {
-        await store.dispatch('getCategoryList')
+        // await store.dispatch('getCategoryList')
+        await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
     }
 
 })

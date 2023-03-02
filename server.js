@@ -50,16 +50,14 @@ async function createServer() {
             res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
 
         } catch (e) {
-            // 如果捕获到了一个错误，让 Vite 来修复该堆栈，这样它就可以映射回
-            // 你的实际源码中。
+            // 如果捕获到了一个错误，让 Vite 来修复该堆栈，这样它就可以映射回你的实际源码中。
             vite.ssrFixStacktrace(e)
             next(e)
         }
     })
 
     app.listen(5173, function() {
-        console.log('http://localhost:5173');
-        console.log('服务端渲染进行中...');
+        console.log('服务端渲染成功! 点击进入: http://localhost:5173');
     })
 }
 

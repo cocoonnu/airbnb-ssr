@@ -14,6 +14,10 @@ export interface AllStateTypes {
     roomList: Array<any>,
     language: string,
     categoryList: Array<any>
+
+    // 分页器
+    roomTotal: number,
+    roomPageSize: number
 }
 
 
@@ -34,7 +38,9 @@ export function createSSRStore() {
             userState: 0,
             roomList: [],
             language: 'zh',
-            categoryList: []
+            categoryList: [],
+            roomTotal: 0,
+            roomPageSize: 6,
         },
 
         getters: {
@@ -55,13 +61,22 @@ export function createSSRStore() {
 
         actions: {
 
-            async getRoomList({ state }) {
-                let result = await reqgetRoomList()
+            // 获取房屋列表数据
+            async getRoomList({ state }, params) {
+
+                // 合并参数
+                Object.assign(params, { pageSize: state.roomPageSize })
+
+                let result = await reqgetRoomList(params)
 
                 if (result.code == '000000') {
-                    state.roomList = result.data
+
+                    // 获取房屋列表数据、总数
+                    state.roomList = result.result.orders.data
+                    state.roomTotal = result.result.total
+                    
                 } else {
-                    ElMessage.error('获取房屋列表失败')
+                    console.log('获取房屋列表失败')
                 }
             },
 
@@ -69,6 +84,7 @@ export function createSSRStore() {
                 let result = await reqgetCategoryList()
 
                 if (result.code == 200) state.categoryList = result.data
+                else console.log('获取数据失败');
             }
 
         },

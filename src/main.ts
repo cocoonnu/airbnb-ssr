@@ -13,8 +13,20 @@ import { createSSRI18n } from '@/language/i18n'
 
 import '@/mock/mockServe'
 
+import VueLazyload from 'vue-lazyload'
+import loadingimage from './assets/loading2.gif'
+
+
 export function createApp() {
     const app = createSSRApp(App)
+
+    // 图片懒加载
+    app.use(VueLazyload, {
+        preLoad: 1.3,
+        error: loadingimage,
+        loading: loadingimage,
+        attempt: 1
+    })
     
     // 路由
     const router = createSSRRouter()
