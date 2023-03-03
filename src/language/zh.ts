@@ -35,7 +35,7 @@ export default {
         signTab: '注册',
         placeMobile: '请输入正确的手机号',
         placePass: '请输入正确的密码',
-        logout: '退出',
+        logout: '退出登录',
         loginLost: '您还未登录，请先登录哦~',
         mobile: '手机号',
         password: '密码',

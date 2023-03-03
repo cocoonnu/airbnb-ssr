@@ -18,7 +18,7 @@ const mockRequests = axios.create({
 mockRequests.interceptors.request.use(function (config) {
 
     // 加载进度条
-    nprogress.start();
+    // nprogress.start();
 
     return config;
 })
@@ -28,7 +28,7 @@ mockRequests.interceptors.response.use(
     // 成功回调
     function (res) {
         // 进度条结束
-        nprogress.done();
+        // nprogress.done();
 
         // 直接返回响应体的 data 作为 promise对象 的value
         return res.data
@@ -36,7 +36,7 @@ mockRequests.interceptors.response.use(
 
     // 失败回调
     function (err) {
-        nprogress.done();
+        // nprogress.done();
 
         console.log('mock数据请求失败');
         return err;

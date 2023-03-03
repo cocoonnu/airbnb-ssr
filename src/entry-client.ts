@@ -44,6 +44,7 @@ router.beforeEach(async function () {
             return fromComponents[i] !== c
         })
 
+
         if (!actived.length) {
             return next()
         }
@@ -64,10 +65,8 @@ router.beforeEach(async function () {
 
             // 结束loading
             // loading.close()
-
             next()
         })
-
 
     })
 

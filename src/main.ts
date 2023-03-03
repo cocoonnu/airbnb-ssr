@@ -16,6 +16,8 @@ import '@/mock/mockServe'
 import VueLazyload from 'vue-lazyload'
 import loadingimage from './assets/loading2.gif'
 
+// import { sync } from 'vuex-router-sync'
+
 
 export function createApp() {
     const app = createSSRApp(App)
@@ -28,6 +30,7 @@ export function createApp() {
         attempt: 1
     })
     
+
     // 路由
     const router = createSSRRouter()
     app.use(router)
@@ -46,6 +49,8 @@ export function createApp() {
     // 语言配置
     const i18n = createSSRI18n()
     app.use(i18n)
+
+    // sync(store, router)
 
     return { app, router, store }
 }

@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
 import { useStore } from '@/store'
 
 export default ({
@@ -22,4 +22,4 @@ export default ({
 
 <template>
     <div>{{ roomList }}</div>
-</template> -->
+</template>

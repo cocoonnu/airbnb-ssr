@@ -96,12 +96,17 @@ const handleSelect = async function(key: string) {
     }
 }
 
+// 点击回到主页
+function goHome() {
+    router.push({ name: 'home' })
+}
+
 </script>
 
 <template>
     <div class="header-common">
 
-        <div class="logo">Airbnb Imitate</div>
+        <div class="logo" @click="goHome">Airbnb Imitate</div>
      
         <client-only>
             <el-menu

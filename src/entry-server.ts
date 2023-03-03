@@ -15,8 +15,9 @@ export async function render(url: string) {
     // 对所有匹配的路由组件调用里面的 asyncData 函数
     await Promise.all(matchedComponents.map(function (Component) {
         if (Component.asyncData) {
+            
 
-            // asyncData 函数接收这些参数
+            // asyncData 函数接收这些参数  route这个没用！！！
             return Component.asyncData({ store, route: router.currentRoute })
         }
     }))

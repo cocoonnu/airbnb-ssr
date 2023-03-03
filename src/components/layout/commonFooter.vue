@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import ClientOnly from '@duannx/vue-client-only'
 
 const { t } = useI18n()
 
@@ -98,6 +99,8 @@ const footerMenu = reactive(
 </script>
 
 <template>
+<!-- <client-only> -->
+
     <div class="footer-common">
         <div class="inner-footer">
             <ul>
@@ -121,6 +124,8 @@ const footerMenu = reactive(
             <div class="copy-right">@ 2022 Harry, Inc . All rights reserved.</div>
         </div>
     </div>
+
+<!-- </client-only> -->
 </template>
 
 <style lang="scss">
@@ -136,6 +141,7 @@ const footerMenu = reactive(
             @include flex-layout(row, space-between, flex-start);
 
             li {
+                letter-spacing: 1px;
                 @include flex-layout(column, space-between, flex-start);
 
                 h3 {

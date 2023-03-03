@@ -2,21 +2,25 @@
 import { ref, onMounted } from 'vue';
 import commonHeader from '@/components/layout/commonHeader.vue'
 import commonFooter from '@/components/layout/commonFooter.vue'
-import homeBody from './components/homeBody.vue'
+import detailBody from '@/views/detail/components/detailBody.vue'
+import ClientOnly from '@duannx/vue-client-only'
+
 
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import { useI18n } from 'vue-i18n'
 
 import { useStore } from '@/store'
+import { useRouter, useRoute } from 'vue-router';
 
 export default({
-    name: 'home',
+    name: 'detail',
 
-    components: { commonFooter, commonHeader, homeBody },
+    components: { commonFooter, commonHeader, detailBody, ClientOnly },
 
     setup() {
         const store = useStore()
+        const route = useRoute()
 
 
         // 全局语言
@@ -29,34 +33,35 @@ export default({
             localeI18n.value = 'en'
         }
 
-        // onMounted(async function() {
-        //     await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
-        // })
 
-        return { locale, localeI18n, store }
+        onMounted(async function () {
+            await store.dispatch('getRoomDetail', { id: route.params.id })
+        })
+
+        return { locale, localeI18n }
+
     },
 
-
-    // 获取房屋列表
     async asyncData({ store }: any) {
+        // console.log(store.state.route.params.id);
+        // console.log(store.state.route);
 
-        await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
-        // await store.dispatch('getRoomListMock')
-        
+        // await store.dispatch('getRoomDetail', { 
+        //     id: store.state.route.params.id
+        // })
     }
 
 })
+
 
 
 </script>
 
 <template>
     <el-config-provider :locale="locale">
-        <commonHeader 
-            @changeLang="(language: any) => { locale = language }" 
-        />
+        <commonHeader @changeLang="(language: any) => { locale = language }" />
 
-        <homeBody />
+        <detailBody />
 
         <commonFooter />
     </el-config-provider>

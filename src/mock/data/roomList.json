@@ -254,6 +254,166 @@
                 "introduce": "街区内以居民为主，充满市井气息，至今仍保持着老杭州人滨水而居的生活方式。五柳巷历史街区，悄然隐身在西湖大道、市三医院、杭州城站火车站的交汇处，在人流如梭、车水马龙的繁华喧嚣的街区中，五柳巷历史街区固守着自己的宁静。沿着东河慢慢地走，黑瓦白墙，小桥流水，走在东河畔的一片老房子的附近，还可以看到树梢上、屋檐下悬挂着许多五颜六色的风车、纸鹤。你再慢慢的走又会发现在白色墙壁上的各种涂鸦，为这片宁静的街区平添了几分浪漫和童趣。闲走于小巷子中能感受到慢生活的节奏，能看到年长的大爷们坐在躺椅上晒太阳话家常，悠闲自得。到了杭州不妨到这样有历史痕迹和故事的街区里走走吧。"
             }
         }
+    },
+    {
+        "id": 14,
+        "title": "「朴·栗」设计美学侘寂风 深圳超级文和友 | 东门|国贸|万象城|KKmall京基100|深圳火车站",
+        "price": 257,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/42de1062-8a75-4379-837e-a92b2259967d.jpg?aki_policy=large",
+        "cityCode": "cd",
+        "detail": {
+            "imgs": [
+                "https://oss.dalieyingcai.com/static/temp/cdn-airbnb/images/10/1.jpg",
+                "https://oss.dalieyingcai.com/static/temp/cdn-airbnb/images/10/2.jpg",
+                "https://oss.dalieyingcai.com/static/temp/cdn-airbnb/images/10/3.jpg"
+            ],
+            "info": {
+                "room": 8,
+                "bed": 3,
+                "toilet": 4,
+                "liveNumber": 1,
+                "remarks": 42,
+                "goodOwner": true,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/25b0c570-557b-481d-9ef9-45b0559ae3a0.jpg?aki_policy=profile_x_medium",
+                "name": "大白菜",
+                "mobile": 17090081379,
+                "certify": true,
+                "introduce": "是一居室公寓电梯房，近静安寺地铁站，静安嘉里中心，欢迎来我们家玩！正朝南的房间，采光超好~！配置投影仪跟电子密码锁！屋子位于繁华的静安寺商圈，愚园路地段。楼下就是就是各种吃喝玩乐的商圈，门口有 久光 芮欧百货 王子晶品等，静安嘉里中心 上海展览中心，步行2/7号线 静安寺地铁站1号口 5分钟"
+            }
+        }
+    },
+    {
+        "id": 14,
+        "title": "【海客瀛洲】超赞新房/朝天门/来福士/洪崖洞/长江索道/落地窗江景房/180度全景看江玻璃/轰趴房/投影仪/麻将桌游",
+        "price": 376,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/miso/Hosting-50764767/original/baa271d7-1ddc-47c4-b188-45ae1fba5180.jpeg?aki_policy=xx_large",
+        "cityCode": "cq",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-50764767/original/baa271d7-1ddc-47c4-b188-45ae1fba5180.jpeg?aki_policy=xx_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-50764767/original/e0bb26a4-e20e-4271-95fa-2e9def34b1f3.jpeg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/miso/Hosting-50764767/original/3acc5622-8f98-4b97-bb62-720f09eba965.jpeg?aki_policy=x_large"
+            ],
+            "info": {
+                "room": 8,
+                "bed": 3,
+                "toilet": 4,
+                "liveNumber": 1,
+                "remarks": 42,
+                "goodOwner": false,
+                "parking": true,
+                "metro": false,
+                "luggage": false
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/25b0c570-557b-481d-9ef9-45b0559ae3a0.jpg?aki_policy=profile_x_medium",
+                "name": "bOV34205943",
+                "mobile": 17090080379,
+                "certify": true,
+                "introduce": "亲爱的客人，欢迎来到我们的家！【位置】我家靠近解放碑步行街、洪崖洞、南滨路、朝天门广场、朝天门地铁站【特色服务】我们将为您提供行李寄存服务【户型功能】我家是温馨2居（2室2厅2卫0厨房），房源有2张双人床可供4人居住，希望您有个舒适的睡眠。房源适合家人和朋友出【尽享私密】房源配置智能密码锁，出入无需钥匙门卡，全程自助，给您安静的享受【干净卫生】我们有专业的保洁清扫，让您住得安心"
+            }
+        }
+    },
+    {
+        "id": 17,
+        "title": "(一禾)小资一居轻奢城市景观房可月租年租/近呼家楼地铁站　/复星国际中心/朝外soho/世贸天阶/国贸/三里屯工体太古里",
+        "price": 217,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/da836e42-cf1c-4dce-a6b6-b6780df104dc.jpg?aki_policy=large",
+        "cityCode": "bj",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/da836e42-cf1c-4dce-a6b6-b6780df104dc.jpg?aki_policy=xx_large",
+                "https://z1.muscache.cn/im/pictures/6f679bc4-5a99-46e1-ba2d-84b545812692.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/ffa51826-6af2-4a38-a38f-061bb34c0bdd.jpg?aki_policy=large"
+            ],
+            "info": {
+                "room": 2,
+                "bed": 3,
+                "toilet": 1,
+                "liveNumber": 4,
+                "remarks": 1,
+                "goodOwner": true,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/c41690e9-a7de-4449-a067-1bfb93b32e16.jpg?aki_policy=profile_x_medium",
+                "name": "俺啥都会",
+                "mobile": 13277081379,
+                "certify": true,
+                "introduce": "房源位置特别棒：1.距离世贸天阶，三里屯太古里直线距离1公里，可步行到达2.东大桥地铁站和呼家楼地铁站步行5分钟的路程，网红的地铁6号线，10号线，交汇处3.距离北京朝阳站比较近，坐车20分钟即可到达。房间设施和装修：1.房间都是匠心独具的设计师通过北欧简约峰哥和意大利古典装修风格，融入中国风的简约设计，给您不一样的入住体验2.房间配套设施齐全：有洗衣机，冰箱，微波炉，办公桌椅，沙发，电视等3.这里不只是一个短租，更是您旅行途中另外的一个家"
+            }
+        }
+    },
+    {
+        "id": 25,
+        "title": "沃家国际公寓(沙井鹏展汇店)+轻奢北欧风大床房+百华商场+清平古墟影视小镇+沙井京基百纳奇幻冰雪世界",
+        "price": 517,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/3ec83a54-abbe-414f-b4cc-07d2e295e5a6.jpg?aki_policy=large",
+        "cityCode": "sz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/3ec83a54-abbe-414f-b4cc-07d2e295e5a6.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/6ea2c089-30ec-4fef-af89-044e4f740d82.jpg?aki_policy=large",
+                "https://z1.muscache.cn/im/pictures/dc021bc1-aa10-4dce-ab9b-9f0415b4e9b2.jpg?aki_policy=large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 2,
+                "remarks": 26,
+                "goodOwner": false,
+                "parking": true,
+                "metro": true,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/44a645f1-93b2-4daa-b4f4-94c19988d8a7.jpg?aki_policy=profile_x_medium",
+                "name": "鹏展汇",
+                "mobile": 17098081379,
+                "certify": true,
+                "introduce": "周边出行方便*风景很好*旁边就是古镇*小区环境"
+            }
+        }
+    },
+    {
+        "id": 7,
+        "title": "【安隅•风月与星】西湖边的复式小阁楼/大投影/定安路50米/西湖边的一室/复古风雷峰塔灵隐寺城隍阁",
+        "price": 263,
+        "pictureUrl": "https://z1.muscache.cn/im/pictures/2a9197cc-79c3-46e3-8904-8daeed2b3dc4.jpg?aki_policy=x_large",
+        "cityCode": "hz",
+        "detail": {
+            "imgs": [
+                "https://z1.muscache.cn/im/pictures/2a9197cc-79c3-46e3-8904-8daeed2b3dc4.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/c70f246c-876e-4f5e-9ff9-d3d50309ec2c.jpg?aki_policy=x_large",
+                "https://z1.muscache.cn/im/pictures/4595e1b4-1f7a-4cf5-9f3d-c84075a00beb.jpg?aki_policy=xx_large"
+            ],
+            "info": {
+                "room": 1,
+                "bed": 1,
+                "toilet": 1,
+                "liveNumber": 1,
+                "remarks": 17,
+                "goodOwner": false,
+                "parking": true,
+                "metro": false,
+                "luggage": true
+            },
+            "owner": {
+                "avatar": "https://z1.muscache.cn/im/pictures/user/25b0c570-557b-481d-9ef9-45b0559ae3a0.jpg?aki_policy=profile_x_medium",
+                "name": "呜呜",
+                "mobile": 17090081379,
+                "certify": true,
+                "introduce": "我们在西湖边长期经营，也认识了好多有特色、高品质的商家，未来我们也会和他们达成合作。我们会提供保姆级旅游攻略，或者根据行程时间定制游攻略，让杭州行像是回家一样轻松。"
+            }
+        }
     }
 ]
 

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useStore } from '@/store'
+import { useRouter, useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n'
+import { ElLoading } from 'element-plus'
 import Pagination from '@/components/pagination/Pagination.vue'
 
 
 // 数据
+const router = useRouter()
 const store = useStore()
 const { t } = useI18n()
 const roomList = computed(() => store.state.roomList)
@@ -37,16 +40,39 @@ const cityArr = [{
 
 // 城市搜索
 async function cityClick(tab: any) {
+    const loading = ElLoading.service({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(255, 255, 255, 0.7)',
+    })
+
     const { name } = tab.props
 
     city.value = name
     await store.dispatch('getRoomList', { pageNo: 1, cityCode: city.value })
+
+    setTimeout(() => { loading.close() }, 500)
 }
 
-// 页数改变时更新页面数据
+
+// 页数改变
 async function roomPageChange(pageNo: any) {
+    const loading = ElLoading.service({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(255, 255, 255, 0.7)',
+    })
+
     page.value = pageNo
     await store.dispatch('getRoomList', { pageNo, cityCode: city.value })
+
+    setTimeout(() => { loading.close() }, 500)
+}
+
+
+// 跳转到详情页
+function goDetail(item: any) {
+    router.push({ name: 'detail', params: { id: item.id } })
 }
 
 </script>
@@ -78,13 +104,20 @@ async function roomPageChange(pageNo: any) {
 
         <!-- 首页列表 -->
         <div class="home-list">
-            <div class="home-item" v-for="(item, index) in roomList">
-
-                <img v-lazy="item.pictureUrl" >
-
-                <h3 class="home-title">{{ item.title }}</h3>
-
-                <p class="home-price">￥{{ item.price }}/晚</p>
+            <div class="home-list-container">
+                <div 
+                    class="home-item" 
+                    v-for="(item, index) in roomList" 
+                    :key="index"
+                    @click="goDetail(item)"
+                >
+    
+                    <img v-lazy="item.pictureUrl" >
+    
+                    <h3 class="home-title">{{ item.title }}</h3>
+    
+                    <p class="home-price">￥{{ item.price }}/晚</p>
+                </div>
             </div>
         </div>
 
@@ -174,41 +207,49 @@ async function roomPageChange(pageNo: any) {
     .home-list {
         width: 100%;
         display: flex;
-        justify-content: flex-start;
-        align-content: center;
-        flex-wrap: wrap;
-        gap: 50px 33px;
-        margin-top: 60px;
+        justify-content: center;
+        margin: 60px 0 20px 0;
 
-        .home-item {
-            width: 250px;
+        .home-list-container {
+            width: 930px;
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: 50px 90px;
 
-            img {
+            .home-item {
                 width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 7px;
-                overflow: hidden;
                 cursor: pointer;
-            }
 
-            .home-title {
-                width: 250px;
-                height: 24px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                font-family: sans-serif;
-                margin-top: 15px;
-                font-size: 16px;
-                font-weight: 600;
-            }
+                img {
+                    width: 250px;
+                    height: 250px;
+                    object-fit: cover;
+                    border-radius: 7px;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
 
-            .home-price {
-                margin: 5px 0;
-                font-size: 14px;
+                .home-title {
+                    width: 250px;
+                    height: 24px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-family: sans-serif;
+                    margin-top: 15px;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .home-price {
+                    margin: 5px 0;
+                    font-size: 14px;
+                }
             }
         }
+
     }
 
 

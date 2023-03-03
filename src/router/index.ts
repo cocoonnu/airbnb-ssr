@@ -15,11 +15,16 @@ const routes = [
         name: 'home',
         component: () => import('@/views/home/index.vue')
     },
-    // {
-    //     path: '/test',
-    //     name: 'test',
-    //     component: () => import('@/views/test/index.vue')
-    // },
+    {
+        path: '/detail/:id',
+        name: 'detail',
+        component: () => import('@/views/detail/index.vue')
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: () => import('@/views/test/index.vue')
+    },
     {
         path: '/',
         redirect: '/home'
@@ -31,7 +36,15 @@ const routes = [
 export function createSSRRouter() {
 
     return createRouter({
+        scrollBehavior() {
+            return {
+                top: 0,
+                behavior: 'smooth',
+            }
+        },
+
         history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
+
         routes,
     })
 
