@@ -75,11 +75,16 @@ export default {
         landlord: 'Landlord',
         contact: 'Contact the landlord',
         greatlandlord: 'Great landlord',
-        reservated: 'Reservated successfully!'
+        reservated: 'Reservated successfully',
+        orderFail: 'Reservation failed',
+        hasOrder: 'The order number has been reserved'
+
     },
     common: {
-        loading: 'Loading...',
-        empty: 'Empty data ~',
-        noOrder: 'There is currently no order'
+        changeLang: 'Switch language successfully',
+        changePage: 'Page switching succeeded',
+        delOrder: 'Successfully deleted the order',
+        noOrder: 'There is currently no order',
+        placeLogin: 'Please log in and register first'
     }
 }

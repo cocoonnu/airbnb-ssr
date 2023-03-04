@@ -75,11 +75,15 @@ export default {
         landlord: '房东',
         contact: '联系房东',
         greatlandlord: '超赞房东',
-        reservated: '预定成功！'
+        reservated: '预定成功',
+        orderFail: '预定失败',
+        hasOrder: '订单号已经预定'
     },
     common: {
-        loading: '拼命加载中...',
-        empty: '空空如也 ~',
-        noOrder: '当前暂无订单'
+        changeLang: '切换语言成功',
+        changePage: '切换页面成功',
+        delOrder: '删除订单成功',
+        noOrder: '当前暂无订单',
+        placeLogin: '请先登录注册'
     }
 }

@@ -81,8 +81,8 @@ export async function userLoginApi(params: any) {
             correct = true
             codeData = '000000' // 成功
 
-            // 保存 token
-            const token = (new Date()).getTime() + ''
+            // 保存 userToken（手机号 + 密码）
+            const token = user.mobile + user.password
             localStorage.setItem('usertoken', token)
 
             // 更新状态 status

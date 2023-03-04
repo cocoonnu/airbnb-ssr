@@ -20,26 +20,33 @@ const peopleNum = ref(1) // 订单人数
 
 // 点击立即预定 
 async function orderClick() {
-    const params = {
-        orderId: route.params.id,
-        title: roomDetail.value.title,
-        price: roomDetail.value.price,
-        personNumber: peopleNum.value,
-        pictureUrl: roomDetail.value.imgs[0]
+    if (store.state.userState) {
+
+        const params = {
+            orderId: route.params.id,
+            title: roomDetail.value.title,
+            price: roomDetail.value.price,
+            personNumber: peopleNum.value,
+            pictureUrl: roomDetail.value.imgs[0]
+        }
+    
+        let result = await saveOrderApi(params)
+    
+        if (result.code == '000000') {
+            ElMessage({
+                message: t('detail.reservated'),
+                type: 'success',
+                duration: 1000
+            })
+        }
+    
+        if (result.code == '000001') ElMessage.error(t('detail.hasOrder')) 
+        if (result.code == '000004') ElMessage.error(t('detail.orderFail'))
+
+    } else {
+        ElMessage.error(t('common.placeLogin'))
     }
 
-    let result = await saveOrderApi(params)
-
-    if (result.code == '000000') {
-        ElMessage({
-            message: '预订成功',
-            type: 'success',
-            duration: 1000
-        })
-    }
-
-    if (result.code == '000001') ElMessage.error('订单号已经预定') 
-    if (result.code == '000004') ElMessage.error('预定失败')
     
 }
 

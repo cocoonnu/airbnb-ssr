@@ -9,9 +9,6 @@ import { useStore } from '@/store'
 const store = useStore()
 const { t } = useI18n()
 let orderList: any = computed(() => store.state.orderList)
-const emits = defineEmits<{
-    (e: 'openDrawer'): void
-}>()
 
 
 // 删除订单
@@ -19,7 +16,7 @@ async function delOrder(orderId: Number) {
     await deleteOrderApi(orderId)
     
     ElMessage({
-        message: `删除订单成功`,
+        message: t('common.delOrder'),
         type: 'success',
         duration: 1000
     })

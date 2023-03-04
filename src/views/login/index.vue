@@ -131,7 +131,7 @@ function loginSign() {
     
     // 发送消息
     ElMessage({
-        message: `切换页面成功`,
+        message: t('common.changePage'),
         type: 'success',
         duration: 1000
     })

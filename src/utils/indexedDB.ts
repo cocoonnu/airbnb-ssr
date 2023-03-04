@@ -67,10 +67,8 @@ export default class IndexedDB {
         // 打开对象仓库
         const store = this.db.transaction([storeName], 'readwrite').objectStore(storeName)
 
-        // 仓库写入数据 updateTime：使数据唯一化
-        let request = store.put({
-            ...data, updateTime: new Date().getTime()
-        })
+        // 仓库写入数据
+        let request = store.put({ ...data })
 
         return new Promise((resolve, reject) => {
 

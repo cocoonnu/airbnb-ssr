@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { defineAsyncComponent } from 'vue'
 import ClientOnly from '@duannx/vue-client-only'
 import { fetchOrderApi } from "@/api/order/index";
+import { ElMessage } from 'element-plus'
 
 
 const store = useStore()
@@ -26,20 +27,31 @@ const orderDrawer: any = computed({
 // 抽屉打开的回调
 async function openDrawer() {
 
-    // 获取订单列表
-    let result: any = await fetchOrderApi()
-    store.commit('fetchOrderList', result.data)
+    if (store.state.userState) { 
+        
+        // 获取订单列表
+        let result: any = await fetchOrderApi()
+        store.commit('fetchOrderList', result.data)
+
+    } else {
+        store.commit('fetchorderDrawer', false)
+        ElMessage.error(t('common.placeLogin'))
+    }
+
 }
 
 </script>
 
 <template>
     <client-only>
-    <el-drawer v-model="orderDrawer" :with-header="false" size="430px" @open="openDrawer">
+    <el-drawer 
+        v-model="orderDrawer" :with-header="false" 
+        size="430px" @open="openDrawer"
+    >
 
         <Suspense>
             <template v-slot:default>
-                <orderBody @openDrawer="openDrawer" />
+                <orderBody/>
             </template>
 
             <template v-slot:fallback>
@@ -58,6 +70,6 @@ span {
 }
 
 .loading {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 </style>

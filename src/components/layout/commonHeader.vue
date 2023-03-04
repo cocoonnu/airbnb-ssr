@@ -47,7 +47,7 @@ const handleSelect = async function(key: string) {
 
             // 发送消息
             ElMessage({
-                message: result.data,
+                message: t('common.changeLang'),
                 type: 'success',
                 duration: 1000
             })
@@ -67,7 +67,7 @@ const handleSelect = async function(key: string) {
 
             // 发送消息
             ElMessage({
-                message: result.data,
+                message: t('common.changeLang'),
                 type: 'success',
                 duration: 1000
             })
