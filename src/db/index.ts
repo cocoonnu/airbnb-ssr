@@ -4,4 +4,4 @@ import IndexedDB from '@/utils/indexedDB'
 export const airbnbDB = new IndexedDB('airbnbDB')
 
 // 数据库对象仓库
-export default ['language', 'user']
+export default ['language', 'user', 'order']

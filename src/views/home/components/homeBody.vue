@@ -133,7 +133,6 @@ function goDetail(item: any) {
     height: 500px;
     background: url('@/assets/images/home/bannerImg.jpg') no-repeat;
     background-size: cover;
-    z-index: 99;
 }
 
 .house-container {

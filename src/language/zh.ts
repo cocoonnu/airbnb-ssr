@@ -79,6 +79,7 @@ export default {
     },
     common: {
         loading: '拼命加载中...',
-        empty: '空空如也 ~'
+        empty: '空空如也 ~',
+        noOrder: '当前暂无订单'
     }
 }

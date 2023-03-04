@@ -4,6 +4,7 @@ import commonHeader from '@/components/layout/commonHeader.vue'
 import commonFooter from '@/components/layout/commonFooter.vue'
 import detailBody from '@/views/detail/components/detailBody.vue'
 import ClientOnly from '@duannx/vue-client-only'
+import { ElMessage, ElLoading } from 'element-plus'
 
 
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
@@ -35,7 +36,15 @@ export default({
 
 
         onMounted(async function () {
+            const loading = ElLoading.service({
+                lock: true,
+                text: 'Loading',
+                background: 'rgba(255, 255, 255, 0.7)',
+            })
+
             await store.dispatch('getRoomDetail', { id: route.params.id })
+
+            setTimeout(() => { loading.close() }, 200)
         })
 
         return { locale, localeI18n }
@@ -61,8 +70,10 @@ export default({
     <el-config-provider :locale="locale">
         <commonHeader @changeLang="(language: any) => { locale = language }" />
 
-        <detailBody />
-
+        <client-only>
+            <detailBody />
+        </client-only>
+        
         <commonFooter />
     </el-config-provider>
 </template>

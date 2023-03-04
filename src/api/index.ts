@@ -9,7 +9,7 @@ export const reqgetCategoryList = function () {
 }
 
 
-// mock 接口: 保存当前语言包
+// 保存当前语言包
 export async function saveLanguageApi(language: any) {
     // 创建 mock 加载效果
     const loading = ElLoading.service({
@@ -18,8 +18,9 @@ export async function saveLanguageApi(language: any) {
         background: 'rgba(255, 255, 255, 0.7)',
     })
 
-    // 再更新仓库中的语言属性（id = 1）
+    // 更新仓库中的语言属性（id = 1）
     let result = await airbnbDB.updateItem('language', { id: 1, language })
+    localStorage.setItem('language', language)
 
     if (result) {
 
@@ -37,7 +38,7 @@ export async function saveLanguageApi(language: any) {
 }
 
 
-// mock 接口: 查询当前语言包
+// 查询当前语言包
 export async function fetchLanguageApi() {
     // 创建 mock 加载效果
     const loading = ElLoading.service({

@@ -1,10 +1,6 @@
 import { createApp } from "./main"
-
 import { airbnbDB } from '@/db/index';
 import stores from '@/db/index'
-
-import { fetchLanguageApi } from '@/api/index'
-
 import { ElMessage } from 'element-plus'
 import { ElLoading } from 'element-plus'
 
@@ -18,14 +14,11 @@ if ((window as any).__INITIAL_STATE__) {
 router.beforeEach(async function () {
 
     // 打开所有仓库
-    let result = await airbnbDB.openStore(stores, 'id')
-    // if (result) console.log('所有对象仓库打开成功');
+    await airbnbDB.openStore(stores, 'id')
 
-
-    // 查询并保存全局语言
-    let resultLang = await fetchLanguageApi()
-    store.commit('fetchLanguage', resultLang)
-
+    // 获取全局语言
+    let lang = localStorage.getItem('language') ? localStorage.getItem('language') : 'zh'
+    store.commit('fetchLanguage', lang)
 
     // 获取登录状态
     let status = localStorage.getItem('usertoken') ? 1 : 0

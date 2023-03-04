@@ -4,11 +4,13 @@ import { useStore } from '@/store'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import ClientOnly from '@duannx/vue-client-only'
+import { saveOrderApi } from "@/api/order/index"
+import { ElMessage } from 'element-plus'
 
 
 const { t } = useI18n()
 const store = useStore()
-const router = useRouter()
+const route = useRoute()
 const roomDetail = computed(() => store.state.roomDetail)
 const roomDetailInfo = computed(() => store.state.roomDetail.info)
 const roomDetailOwner = computed(() => store.state.roomDetail.owner)
@@ -16,9 +18,29 @@ const roomDetailOwner = computed(() => store.state.roomDetail.owner)
 const peopleNum = ref(1) // 订单人数
 
 
-// 点击立即预定
-function orderClick() {
-    console.log(peopleNum.value);
+// 点击立即预定 
+async function orderClick() {
+    const params = {
+        orderId: route.params.id,
+        title: roomDetail.value.title,
+        price: roomDetail.value.price,
+        personNumber: peopleNum.value,
+        pictureUrl: roomDetail.value.imgs[0]
+    }
+
+    let result = await saveOrderApi(params)
+
+    if (result.code == '000000') {
+        ElMessage({
+            message: '预订成功',
+            type: 'success',
+            duration: 1000
+        })
+    }
+
+    if (result.code == '000001') ElMessage.error('订单号已经预定') 
+    if (result.code == '000004') ElMessage.error('预定失败')
+    
 }
 
 </script>
@@ -40,9 +62,9 @@ function orderClick() {
         </el-carousel-item>
     </el-carousel>
 
-        <!-- 房屋详情信息 -->
     <div class="room-detail">
-
+        
+        <!-- 房屋详情信息 -->
         <div class="detail-part">
             <h2>{{ roomDetail.title }}</h2>
 
@@ -101,38 +123,36 @@ function orderClick() {
             <div class="introduce">{{ roomDetailOwner?.introduce }}</div>
         </div>
 
+
+        <!-- 立即预定表单 -->
         <el-affix :offset="15">
-        <div class="form-part">
-            
-            <p class="price">
-                <span>¥{{ roomDetail.price }}</span>
-                / {{ t('detail.night') }}
-            </p>
-            
-            <client-only>
-            <el-form label-position="top" class="order-ruleForm">
-            
-                <el-form-item :label="t('detail.personNumber')">
-                    <el-select v-model="peopleNum" >
-                        <el-option 
-                            v-for="item in 4"
-                            :label="item" 
-                            :value="item" 
-                        />
-                    </el-select>
-                </el-form-item>
+            <div class="form-part">
+                
+                <p class="price">
+                    <span>¥{{ roomDetail.price }}</span>
+                    / {{ t('detail.night') }}
+                </p>
+                
+                <el-form label-position="top" class="order-ruleForm">
+                
+                    <el-form-item :label="t('detail.personNumber')">
+                        <el-select v-model="peopleNum" >
+                            <el-option 
+                                v-for="item in 4"
+                                :label="item" 
+                                :value="item" 
+                            />
+                        </el-select>
+                    </el-form-item>
 
-                <el-button type="primary" class="order-btn" @click="orderClick">
-                    {{ t('detail.order') }}
-                </el-button>
+                    <el-button type="primary" class="order-btn" @click="orderClick">
+                        {{ t('detail.order') }}
+                    </el-button>
 
-            </el-form>
-            </client-only>
+                </el-form>
 
-
-        </div>
+            </div>
         </el-affix>
-
 
     </div>
 

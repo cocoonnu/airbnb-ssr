@@ -2,7 +2,8 @@ import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { reqgetRoomList } from '@/api/home/index'
 import { reqgetCategoryList } from '@/api/index'
-import { ElMessage } from 'element-plus'
+
+
 
 import { reqgetRoomList, reqgetRoomListMock } from '@/api/home/index'
 import { reqgetCategoryList } from '@/api/index'
@@ -20,6 +21,10 @@ export interface AllStateTypes {
     // 分页器
     roomTotal: number,
     roomPageSize: number
+
+    // 订单侧边栏显示
+    orderDrawer: Boolean
+    orderList: Array<any>
 }
 
 
@@ -44,6 +49,8 @@ export function createSSRStore() {
             categoryList: [],
             roomTotal: 0,
             roomPageSize:6,
+            orderDrawer: false,
+            orderList: []
         },
 
         getters: {
@@ -58,8 +65,15 @@ export function createSSRStore() {
 
             getUserStatus(state, value) {
                 state.userState = value
-            }
+            },
 
+            fetchorderDrawer(state, value) {
+                state.orderDrawer = value
+            },
+
+            fetchOrderList(state, value) {
+                state.orderList = value
+            }
         },
 
         actions: {
@@ -73,6 +87,7 @@ export function createSSRStore() {
                 let result = await reqgetRoomList(params)
                 // console.log(result);
 
+
                 if (result.code == '000000') {
 
                     // 获取房屋列表数据、总数
@@ -84,23 +99,6 @@ export function createSSRStore() {
                 }
             },
 
-            // 获取房屋列表Mock
-            // async getRoomListMock({ state }) {
-
-            //     let result = await reqgetRoomListMock()
-            //     console.log(result);
-
-            //     if (result.code == '000000') {
-
-            //         // 获取房屋列表数据、总数
-            //         state.roomList = result.data
-            //         state.roomTotal = 20
-
-            //     } else {
-            //         console.log('获取房屋列表失败')
-            //     }
-            // },
-
 
             // 获取房屋详细数据
             async getRoomDetail({ state }, params) {
@@ -108,6 +106,7 @@ export function createSSRStore() {
                 let result = await reqgetRoomDetail(params)
                 // console.log(result);
 
+                
                 if (result.code == '000000') {
                     state.roomDetail = result.result
 

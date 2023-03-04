@@ -8,7 +8,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 const defaultConfig = {
     timeout: 5000,
     // baseURL: import.meta.env.PROD ? 'http://110.42.184.111' : 'http://localhost:3000/release'
-    // baseURL: '/api'
+    baseURL: 'http://localhost:5173/release'
 }
 
 // TS 封装

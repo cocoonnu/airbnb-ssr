@@ -8,10 +8,9 @@
 import { ElLoading } from 'element-plus'
 import { airbnbDB } from '@/db/index';
 
-// 对象仓库名
 const storeName = 'user'
 
-// mock 接口: 用户注册
+// 用户注册
 export async function userSignApi(params: any) {
     // 创建 mock 加载效果
     const loading = ElLoading.service({
@@ -52,7 +51,7 @@ export async function userSignApi(params: any) {
 
 }
 
-// mock 接口: 用户登录
+// 用户登录
 export async function userLoginApi(params: any) {
     // 创建 mock 加载效果
     const loading = ElLoading.service({
@@ -110,7 +109,7 @@ export async function userLoginApi(params: any) {
 
 }
 
-// mock 接口: 用户登出
+// 用户登出
 export async function userLogoutApi() {
     // 创建 mock 加载效果
     const loading = ElLoading.service({

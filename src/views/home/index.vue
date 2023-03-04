@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import commonHeader from '@/components/layout/commonHeader.vue'
 import commonFooter from '@/components/layout/commonFooter.vue'
 import homeBody from './components/homeBody.vue'
+import { ElMessage, ElLoading } from 'element-plus'
 
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
@@ -29,20 +30,24 @@ export default({
             localeI18n.value = 'en'
         }
 
-        // onMounted(async function() {
-        //     await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
-        // })
+        onMounted(function() {
+            const loading = ElLoading.service({
+                lock: true,
+                text: 'Loading',
+                background: 'rgba(255, 255, 255, 0.7)',
+            })
+
+            setTimeout(() => { loading.close() }, 500)
+        })
 
         return { locale, localeI18n, store }
     },
 
 
-    // 获取房屋列表
     async asyncData({ store }: any) {
-
+                
+        // 获取房屋列表
         await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
-        // await store.dispatch('getRoomListMock')
-        
     }
 
 })
@@ -51,7 +56,7 @@ export default({
 </script>
 
 <template>
-    <el-config-provider :locale="locale">
+    <!-- <el-config-provider :locale="locale"> -->
         <commonHeader 
             @changeLang="(language: any) => { locale = language }" 
         />
@@ -59,7 +64,7 @@ export default({
         <homeBody />
 
         <commonFooter />
-    </el-config-provider>
+    <!-- </el-config-provider> -->
 </template>
 
 <style lang="scss" scoped></style>

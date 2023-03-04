@@ -37,4 +37,17 @@ export default defineConfig({
             }
         }
     },
+
+    // 配置代理
+    server: {
+        host: 'localhost',
+        port: 5173,
+        proxy: {
+            '/release': {
+                target: 'http://110.42.184.111',
+                rewrite: path => path.replace(/^\/release/, '')
+            }
+        }
+    }
+
 })

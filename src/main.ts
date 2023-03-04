@@ -14,7 +14,7 @@ import { createSSRI18n } from '@/language/i18n'
 import '@/mock/mockServe'
 
 import VueLazyload from 'vue-lazyload'
-import loadingimage from './assets/loading2.gif'
+import loadingimage from './assets/loading.gif'
 
 // import { sync } from 'vuex-router-sync'
 

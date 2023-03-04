@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import en from 'element-plus/lib/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import { saveLanguageApi } from '@/api/index'
@@ -11,15 +11,13 @@ import { useRouter } from 'vue-router'
 import { useStore } from '@/store'
 
 import ClientOnly from '@duannx/vue-client-only'
+import Order from '@/views/order/index.vue'
 
 
 const store = useStore()
 const router = useRouter()
-
 // 全局语言
 const { t, locale } = useI18n()
-
-
 // 自定义事件
 const emit = defineEmits<{
 
@@ -31,10 +29,10 @@ const emit = defineEmits<{
 
 // 用户登录状态
 const userStatus = store.state.userState
-
-
 // el-menu 活跃属性
-const activeIndex = ref('orders')
+const activeIndex = ref('')
+
+
 
 
 // el-menu 点击函数
@@ -58,6 +56,7 @@ const handleSelect = async function(key: string) {
         }
     }
 
+
     if (key == 'en') {
         let result: any = await saveLanguageApi('en')
 
@@ -77,9 +76,11 @@ const handleSelect = async function(key: string) {
         }
     }
 
+
     if(key == 'login') {
         router.push({ name: 'login' })
     }
+
 
     if(key == 'logout') {
 
@@ -93,6 +94,11 @@ const handleSelect = async function(key: string) {
         })
 
         router.push({ name: 'login' })
+    }
+
+    if (key == 'orders') {
+        // 开启订单侧边栏
+        store.commit('fetchorderDrawer', true)
     }
 }
 
@@ -139,10 +145,14 @@ function goHome() {
 
     </div>
 
+    <!-- 订单侧边栏 -->
+    <Order />
+
 </template>
 
 <style lang="scss">
 .header-common {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -159,6 +169,7 @@ function goHome() {
         font-size: 22px;
         font-family: 'Varela Round', sans-serif;
         color: hsl(38, 8%, 8%);
+        user-select: none;
         cursor: pointer;
     }
 
@@ -186,5 +197,6 @@ function goHome() {
             border-bottom-color: #fff;
         }
     }
+
 }
 </style>

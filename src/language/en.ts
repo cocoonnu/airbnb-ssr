@@ -79,6 +79,7 @@ export default {
     },
     common: {
         loading: 'Loading...',
-        empty: 'Empty data ~'
+        empty: 'Empty data ~',
+        noOrder: 'There is currently no order'
     }
 }

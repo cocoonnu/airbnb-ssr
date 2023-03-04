@@ -4,7 +4,7 @@ import mockRequests from '@/mock/mockRequests'
 
 // 获取房屋列表
 export const reqgetRoomList = function (params) {
-    return http.httpRequestGet('http://110.42.184.111/api/room/room/getRoomList', params)
+    return http.httpRequestGet('/api/room/room/getRoomList', params)
 }
 
 

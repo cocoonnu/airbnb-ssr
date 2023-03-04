@@ -99,7 +99,7 @@ const footerMenu = reactive(
 </script>
 
 <template>
-<!-- <client-only> -->
+<client-only>
 
     <div class="footer-common">
         <div class="inner-footer">
@@ -125,7 +125,7 @@ const footerMenu = reactive(
         </div>
     </div>
 
-<!-- </client-only> -->
+</client-only>
 </template>
 
 <style lang="scss">
