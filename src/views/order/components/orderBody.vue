@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
+import { computed } from "vue";
 import { delayFetchOrderApi, deleteOrderApi, fetchOrderApi } from "@/api/order/index";
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
 import { useStore } from '@/store'
+import { useRouter } from 'vue-router'
 
 
+const router = useRouter()
 const store = useStore()
 const { t } = useI18n()
 let orderList: any = computed(() => store.state.orderList)
@@ -28,6 +30,14 @@ async function delOrder(orderId: Number) {
 }  
 
 
+// 跳转到详情页
+function goDetail(item: any) {
+    // 关闭订单侧边栏
+    store.commit('fetchorderDrawer', false)
+    router.push({ name: 'detail', params: { id: item.orderId } })
+}
+
+
 // 制造延迟效果
 await delayFetchOrderApi()
 
@@ -42,7 +52,7 @@ await delayFetchOrderApi()
         :style="{ boxShadow: 'var(--el-box-shadow)' }" 
     >
         <div class="order-img">
-            <img v-lazy="item.pictureUrl">
+            <img v-lazy="item.pictureUrl" @click="goDetail(item)" >
         </div>
 
         <div class="order-text">
@@ -86,6 +96,7 @@ await delayFetchOrderApi()
             object-fit: cover;
             border-radius: 4px;
             overflow: hidden;
+            cursor: pointer;
         }
     }
     

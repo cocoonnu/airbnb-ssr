@@ -4,14 +4,12 @@
 
 import { ElLoading } from 'element-plus'
 import { airbnbDB } from '@/db/index';
-import { pa } from 'element-plus/es/locale';
 
 const storeName = 'order'
 
 // 立即预定
 export async function saveOrderApi(params: any) {
 
-    // 创建 mock 加载效果
     const loading = ElLoading.service({
         lock: true,
         text: 'Loading',
@@ -26,7 +24,7 @@ export async function saveOrderApi(params: any) {
     let usertoken = localStorage.getItem('usertoken')
 
 
-    let hasOrders = false  // 订单号是否已经存在
+    let hasOrder = false // 订单号是否存在
     let hasOrderList = false // 用户订单是否为空
     let id = null // keypath
     let orderList = [] // 用户订单列表
@@ -38,25 +36,30 @@ export async function saveOrderApi(params: any) {
             
             // 判断订单号是否已经预定 
             order.orderList.map((orderListItem) => {
-                if (orderListItem.orderId == params.orderId) hasOrders = true                
+
+                if (orderListItem.orderId == params.orderId) hasOrder = true
+
             })            
 
-            // 确定参数
-            id = order.id
-            orderList = order.orderList
-            orderList.push(params)
-            hasOrderList = true // 用户订单不为空
+            // 订单号不存在的话
+            if (!hasOrder) {
+                id = order.id
+                orderList = order.orderList
+                orderList.push(params)
+                hasOrderList = true // 用户订单不为空                
+            }
         }
 
     })
 
 
-    if (hasOrders) {
+    if (hasOrder) {
         // 加载结束
         setTimeout(() => { loading.close() }, 500)
 
-        return { code: '000001', message: '预定失败', data: false, ok: false }
+        return { code: '000001', message: '预定失败', data: false, ok: false }        
     }
+
 
     let result = null
     if (hasOrderList) {

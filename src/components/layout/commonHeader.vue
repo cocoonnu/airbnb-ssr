@@ -96,10 +96,29 @@ const handleSelect = async function(key: string) {
         router.push({ name: 'login' })
     }
 
+
     if (key == 'orders') {
-        // 开启订单侧边栏
-        store.commit('fetchorderDrawer', true)
+
+        if (store.state.userState) {
+
+            // 开启订单侧边栏
+            store.commit('fetchorderDrawer', true)
+        } else {
+            ElMessage.error(t('common.placeLogin'))
+        }
     }
+
+
+    if (key == 'records') {
+
+        if (store.state.userState) {
+
+            router.push({ name: 'record' })
+        } else {
+            ElMessage.error(t('common.placeLogin'))
+        }
+    }
+
 }
 
 // 点击回到主页

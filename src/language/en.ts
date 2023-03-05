@@ -85,6 +85,7 @@ export default {
         changePage: 'Page switching succeeded',
         delOrder: 'Successfully deleted the order',
         noOrder: 'There is currently no order',
+        noRecord: 'There is currently no history',
         placeLogin: 'Please log in and register first'
     }
 }

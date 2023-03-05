@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useStore } from '@/store'
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { ElLoading } from 'element-plus'
 import Pagination from '@/components/pagination/Pagination.vue'
@@ -12,6 +12,8 @@ const router = useRouter()
 const store = useStore()
 const { t } = useI18n()
 const roomList = computed(() => store.state.roomList)
+const roomTotal = computed(() => store.state.roomTotal)
+const roomPageSize = computed(() => store.state.roomPageSize)
 const city = ref('hz')
 const page = ref(1)
 const cityArr = [{
@@ -56,7 +58,7 @@ async function cityClick(tab: any) {
 
 
 // 页数改变
-async function roomPageChange(pageNo: any) {
+async function pageChange(pageNo: any) {
     const loading = ElLoading.service({
         lock: true,
         text: 'Loading',
@@ -122,7 +124,10 @@ function goDetail(item: any) {
         </div>
 
         <!-- 分页器 -->
-        <Pagination @roomPageChange="roomPageChange" />
+        <Pagination 
+            @pageChange="pageChange" 
+            :total="roomTotal" :pageSize="roomPageSize"
+        />
     </div>
 
 </template>
@@ -249,12 +254,6 @@ function goDetail(item: any) {
             }
         }
 
-    }
-
-
-    .el-pagination {
-        margin: 30px auto;
-        justify-content: center;
     }
 }
 </style>

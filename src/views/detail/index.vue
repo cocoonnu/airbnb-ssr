@@ -5,6 +5,7 @@ import commonFooter from '@/components/layout/commonFooter.vue'
 import detailBody from '@/views/detail/components/detailBody.vue'
 import ClientOnly from '@duannx/vue-client-only'
 import { ElMessage, ElLoading } from 'element-plus'
+import { saveRecordApi } from '@/api/record/index';
 
 
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
@@ -36,6 +37,8 @@ export default({
 
 
         onMounted(async function () {
+
+            // 查询房屋详细信息
             const loading = ElLoading.service({
                 lock: true,
                 text: 'Loading',
@@ -45,15 +48,31 @@ export default({
             await store.dispatch('getRoomDetail', { id: route.params.id })
 
             setTimeout(() => { loading.close() }, 200)
+
+
+            if (store.state.userState) {
+                
+                // 保存历史记录
+                let roomDetail = store.state.roomDetail
+                const params = {
+                    recordId: route.params.id,
+                    title: roomDetail.title,
+                    price: roomDetail.price,
+                    pictureUrl: roomDetail.imgs[0]
+                }
+                
+                let result = await saveRecordApi(params)
+            }
+
         })
 
         return { locale, localeI18n }
 
     },
 
-    async asyncData({ store }: any) {
-        // console.log(store.state.route.params.id);
-        // console.log(store.state.route);
+    async asyncData({ store, route }: any) {
+        // console.log(route);
+        // console.log(route.value);
 
         // await store.dispatch('getRoomDetail', { 
         //     id: store.state.route.params.id
@@ -71,7 +90,7 @@ export default({
         <commonHeader @changeLang="(language: any) => { locale = language }" />
 
         <client-only>
-            <detailBody />
+            <detailBody/>
         </client-only>
         
         <commonFooter />

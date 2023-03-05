@@ -84,6 +84,7 @@ export default {
         changePage: '切换页面成功',
         delOrder: '删除订单成功',
         noOrder: '当前暂无订单',
+        noRecord: '当前暂无历史记录',
         placeLogin: '请先登录注册'
     }
 }

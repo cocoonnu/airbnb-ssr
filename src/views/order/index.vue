@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useStore } from '@/store'
 import { useI18n } from 'vue-i18n'
 import { defineAsyncComponent } from 'vue'
 import ClientOnly from '@duannx/vue-client-only'
 import { fetchOrderApi } from "@/api/order/index";
-import { ElMessage } from 'element-plus'
 
 
 const store = useStore()
@@ -27,17 +26,9 @@ const orderDrawer: any = computed({
 // 抽屉打开的回调
 async function openDrawer() {
 
-    if (store.state.userState) { 
-        
-        // 获取订单列表
-        let result: any = await fetchOrderApi()
-        store.commit('fetchOrderList', result.data)
-
-    } else {
-        store.commit('fetchorderDrawer', false)
-        ElMessage.error(t('common.placeLogin'))
-    }
-
+    // 获取订单列表
+    let result: any = await fetchOrderApi()
+    store.commit('fetchOrderList', result.data)
 }
 
 </script>

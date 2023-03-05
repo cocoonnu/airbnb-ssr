@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useStore } from '@/store'
 import { ElLoading } from 'element-plus'
 
 
-const emit = defineEmits<{
-    (e: 'roomPageChange', num: number): void
+const emits = defineEmits<{
+    (e: 'pageChange', num: number): void
 }>()
 
-const store = useStore()
-const roomTotal = computed(() => store.state.roomTotal)
-const roomPageSize = computed(() => store.state.roomPageSize)
+const props = defineProps<{
+    total: number,
+    pageSize: number
+}>()
 
 
 function currentChange(p: any) {
@@ -20,7 +19,7 @@ function currentChange(p: any) {
         background: 'rgba(255, 255, 255, 0.7)',
     })
 
-    emit('roomPageChange', p)
+    emits('pageChange', p)
 
     setTimeout(() => { loading.close() }, 500)
 }
@@ -29,8 +28,8 @@ function currentChange(p: any) {
 
 <template>
     <el-pagination 
-        :page-size="roomPageSize"
-        :total="roomTotal" 
+        :page-size="pageSize"
+        :total="total" 
         layout="prev, pager, next" 
         @current-change="currentChange"
         hide-on-single-page
@@ -40,4 +39,8 @@ function currentChange(p: any) {
 </template>
 
 <style scoped>
+.el-pagination {
+    margin: 30px auto;
+    justify-content: center;
+}
 </style>

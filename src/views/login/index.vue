@@ -356,7 +356,7 @@ html {
     position: absolute;
     width: 60px;
     height: 60px;
-    top: 0px;
+    top: 5px;
     right: 5px;
     background: url('@/assets/images/login/changeLang.png') no-repeat;
     background-size: cover;

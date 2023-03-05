@@ -23,8 +23,11 @@ router.beforeEach(async function () {
     // 获取登录状态
     let status = localStorage.getItem('usertoken') ? 1 : 0
     store.commit('getUserStatus', status)
+}) 
 
 
+router.isReady().then(function() {
+    
     router.beforeResolve((to, from, next) => {
         const toComponents = router.resolve(to).matched.flatMap(record =>
             Object.values(record.components)
@@ -49,12 +52,12 @@ router.beforeEach(async function () {
         //     background: 'rgba(255, 255, 255, 0.7)',
         // })
 
-        Promise.all(actived.map(function(Component) {
+        Promise.all(actived.map(function (Component) {
             if (Component.asyncData) {
 
                 return Component.asyncData({ store, route: router.currentRoute })
             }
-        })).then(function() {
+        })).then(function () {
 
             // 结束loading
             // loading.close()
@@ -63,10 +66,6 @@ router.beforeEach(async function () {
 
     })
 
-}) 
-
-
-router.isReady().then(function() {
     app.mount('#app')
 })
 
