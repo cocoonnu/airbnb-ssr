@@ -3,10 +3,10 @@ import { ref, onMounted } from 'vue';
 import commonHeader from '@/components/layout/commonHeader.vue'
 import commonFooter from '@/components/layout/commonFooter.vue'
 import homeBody from './components/homeBody.vue'
-import { ElMessage, ElLoading } from 'element-plus'
+import { ElLoading } from 'element-plus'
 
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import en from 'element-plus/lib/locale/lang/en'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn.js'
+import en from 'element-plus/lib/locale/lang/en.js'
 import { useI18n } from 'vue-i18n'
 
 import { useStore } from '@/store'
@@ -44,8 +44,8 @@ export default({
     },
 
 
-    async asyncData({ store }: any) {
-                
+    async asyncData({ store, route }: any) {
+        
         // 获取房屋列表
         await store.dispatch('getRoomList', { pageNo: 1, cityCode: 'hz' })
     }

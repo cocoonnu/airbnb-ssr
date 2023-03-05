@@ -113,6 +113,8 @@ export function createSSRStore() {
                 } else {
                     console.log('获取房屋列表失败')
                 }
+
+                return true
             },
 
 

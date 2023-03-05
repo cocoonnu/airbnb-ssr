@@ -16,27 +16,22 @@ import '@/mock/mockServe'
 import VueLazyload from 'vue-lazyload'
 import loadingimage from './assets/loading.gif'
 
-// import { sync } from 'vuex-router-sync'
+import { sync } from 'vuex-router-sync'
 
 
 export function createApp() {
     const app = createSSRApp(App)
+    const router = createSSRRouter()
+    const store = createSSRStore()
+    const i18n = createSSRI18n()
 
-    // 图片懒加载
-    app.use(VueLazyload, {
-        preLoad: 1.3,
-        error: loadingimage,
-        loading: loadingimage,
-        attempt: 1
-    })
-    
+    // vuex 同步路由信息
+    sync(store, router)
 
     // 路由
-    const router = createSSRRouter()
     app.use(router)
     
     // vuex
-    const store = createSSRStore()
     app.use(store, key)
     
     // ElementPlus
@@ -46,11 +41,16 @@ export function createApp() {
         current: 0,
     })
     
-    // 语言配置
-    const i18n = createSSRI18n()
-    app.use(i18n)
+    // 图片懒加载
+    app.use(VueLazyload, {
+        preLoad: 1.3,
+        error: loadingimage,
+        loading: loadingimage,
+        attempt: 1
+    })
 
-    // sync(store, router)
+    // 语言配置
+    app.use(i18n)
 
     return { app, router, store }
 }

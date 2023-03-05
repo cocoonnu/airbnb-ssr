@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useStore } from '@/store'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { ElLoading } from 'element-plus'
 import Pagination from '@/components/pagination/Pagination.vue'
@@ -74,7 +74,11 @@ async function pageChange(pageNo: any) {
 
 // 跳转到详情页
 function goDetail(item: any) {
-    router.push({ name: 'detail', params: { id: item.id } })
+    router.push({ name: 'detail', params: {
+            id: item.id,
+            title: item.title
+        }
+    })
 }
 
 </script>

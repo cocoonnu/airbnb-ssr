@@ -4,16 +4,16 @@ import commonHeader from '@/components/layout/commonHeader.vue'
 import commonFooter from '@/components/layout/commonFooter.vue'
 import detailBody from '@/views/detail/components/detailBody.vue'
 import ClientOnly from '@duannx/vue-client-only'
-import { ElMessage, ElLoading } from 'element-plus'
+import { ElLoading } from 'element-plus'
 import { saveRecordApi } from '@/api/record/index';
 
 
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import en from 'element-plus/lib/locale/lang/en'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn.js'
+import en from 'element-plus/lib/locale/lang/en.js'
 import { useI18n } from 'vue-i18n'
 
 import { useStore } from '@/store'
-import { useRouter, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 export default({
     name: 'detail',
@@ -61,7 +61,7 @@ export default({
                     pictureUrl: roomDetail.imgs[0]
                 }
                 
-                let result = await saveRecordApi(params)
+                await saveRecordApi(params)
             }
 
         })
@@ -71,12 +71,11 @@ export default({
     },
 
     async asyncData({ store, route }: any) {
-        // console.log(route);
-        // console.log(route.value);
-
-        // await store.dispatch('getRoomDetail', { 
-        //     id: store.state.route.params.id
+        // let result = await store.dispatch('getRoomDetail', { 
+        //     id: route.params.id
         // })
+        
+        // console.log(result)        
     }
 
 })

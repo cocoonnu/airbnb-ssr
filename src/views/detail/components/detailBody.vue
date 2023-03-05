@@ -85,6 +85,7 @@ async function orderClick() {
                 </span>
             </div>
 
+            <client-only>
             <div class="tags">
                 <el-tag size="small">
                     {{ roomDetailInfo?.remarks }} {{ t('detail.remarks') }}
@@ -110,7 +111,9 @@ async function orderClick() {
                     type="success"
                     v-if="roomDetailInfo?.luggage"
                 >{{ t('detail.luggage') }}</el-tag>
-            </div>
+            </div>       
+            </client-only>
+
 
             <hr />
 

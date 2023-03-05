@@ -34,7 +34,12 @@ async function delOrder(orderId: Number) {
 function goDetail(item: any) {
     // 关闭订单侧边栏
     store.commit('fetchorderDrawer', false)
-    router.push({ name: 'detail', params: { id: item.orderId } })
+
+    // 跳转到详情页
+    router.push({ name: 'detail', params: { 
+        id: item.orderId,
+        title: item.title
+    }})
 }
 
 

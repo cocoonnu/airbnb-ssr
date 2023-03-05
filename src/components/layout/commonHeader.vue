@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import en from 'element-plus/lib/locale/lang/en'
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import en from 'element-plus/lib/locale/lang/en.js'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn.js'
 import { saveLanguageApi } from '@/api/index'
 import { userLogoutApi } from '@/api/login/index'
 import { ElMessage } from 'element-plus'

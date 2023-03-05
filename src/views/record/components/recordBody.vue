@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { useRouter } from 'vue-router'
-import { fetchRecordApi, delayFetchRecordApi } from '@/api/record'
+import { fetchRecordApi } from '@/api/record'
 import Pagination from '@/components/pagination/Pagination.vue'
 
 const store = useStore()
@@ -24,7 +24,10 @@ function pageChange(p: number) {
 
 // 跳转到详情页
 function goDetail(item: any) {
-    router.push({ name: 'detail', params: { id: item.recordId } })
+    router.push({ name: 'detail', params: {
+        id: item.recordId,
+        title: item.title
+    }})
 }
 
 

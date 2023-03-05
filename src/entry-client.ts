@@ -3,6 +3,7 @@ import { airbnbDB } from '@/db/index';
 import stores from '@/db/index'
 import { ElMessage } from 'element-plus'
 import { ElLoading } from 'element-plus'
+import { toRaw } from '@vue/reactivity'
 
 
 const { app, router, store } = createApp()
@@ -12,7 +13,7 @@ if ((window as any).__INITIAL_STATE__) {
 }
 
 router.beforeEach(async function () {
-
+    
     // 打开所有仓库
     await airbnbDB.openStore(stores, 'id')
 
@@ -45,27 +46,41 @@ router.isReady().then(function() {
             return next()
         }
 
-        // 可以添加loading（不过会和其他请求冲突，所以算了）
-        // const loading = ElLoading.service({
-        //     lock: true,
-        //     text: 'Loading',
-        //     background: 'rgba(255, 255, 255, 0.7)',
-        // })
-
         Promise.all(actived.map(function (Component) {
             if (Component.asyncData) {
 
                 return Component.asyncData({ store, route: router.currentRoute })
+                // return Component.asyncData({ store, route: to })
             }
         })).then(function () {
 
             // 结束loading
-            // loading.close()
             next()
         })
 
     })
 
+
     app.mount('#app')
 })
 
+
+router.afterEach((to, from, next) => {
+
+    // 填充 mate 元信息
+    const { meta } = to
+    const { title, keywords, description } = meta
+    const detailTitle = to.params?.title
+
+    if (detailTitle) {
+        document.title = title ? `${title}${detailTitle}` : ''
+    } else {
+        document.title = title ? `${title}` : ''
+    }
+
+    const keywordsMeta = document.querySelector('meta[name="keywords"]')
+    keywordsMeta?.setAttribute("content", `${keywords}`)
+
+    const descriptionMeta = document.querySelector('meta[name="description"]')
+    descriptionMeta?.setAttribute("content", `${description}`)
+})

@@ -42,9 +42,18 @@ async function createServer() {
             const { appHtml, state } = await render(url)
 
 
+            // 获取路由中的元信息（服务端渲染时改变标题）            
+            const { meta } = state.route
+            const { title, keywords, description } = meta
+
+
             // 5. 注入渲染后的应用程序 HTML 到模板占位符中（重点！）
             const html = template.replace(`<!--ssr-outlet-->`, appHtml)
             .replace('\'<!--vuex-state-->\'', JSON.stringify(state))
+            .replace('<title>', `<title>${title}`)
+            .replace('<meta name="keywords" content="" />', `<meta name="keywords" content="${keywords}" />`)
+            .replace('<meta name="description" content="" />', `<meta name="description" content="${description}" />`)
+
 
             // 6. 返回渲染后的 HTML。
             res.status(200).set({ 'Content-Type': 'text/html' }).end(html)

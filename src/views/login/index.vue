@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import en from 'element-plus/lib/locale/lang/en'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn.js'
+import en from 'element-plus/lib/locale/lang/en.js'
 import { ElMessage } from 'element-plus'
 import { ElLoading } from 'element-plus'
 import type { FormInstance } from 'element-plus'
@@ -95,8 +95,6 @@ async function submitForm(formEl: FormInstance | undefined) {
             if (result.code == '000003') ElMessage.error('手机号不正确')
             if (result.code == '000004') ElMessage.error('登录失败')
             if (result.code == '000000') {
-                // 将全局的 userStatus 设置为1
-                // store.commit('changeUserState', 1)
 
                 ElMessage({
                     message: '登录成功',
@@ -105,7 +103,7 @@ async function submitForm(formEl: FormInstance | undefined) {
                 })
 
                 // 跳转路由
-                setTimeout(() => { router.replace({ name: 'home' }) }, 500)
+                router.replace({ name: 'home' })
             }
         }
 
@@ -277,7 +275,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('@/assets/images/login/wave2.png');
+    background-image: url('@/assets/images/login/wave.png');
     background-size: cover;
     animation: move 10s linear alternate infinite;
 }
