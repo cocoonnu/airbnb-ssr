@@ -104,8 +104,7 @@ export function createSSRStore() {
             async getRoomDetail({ state }, params) {
 
                 let result = await reqgetRoomDetail(params)
-                // console.log(result);
-
+                // console.log(result)
                 
                 if (result.code == '000000') {
                     state.roomDetail = result.result

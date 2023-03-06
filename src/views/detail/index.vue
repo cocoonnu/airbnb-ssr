@@ -45,7 +45,12 @@ export default({
                 background: 'rgba(255, 255, 255, 0.7)',
             })
 
-            await store.dispatch('getRoomDetail', { id: route.params.id })
+            if (route.params.id != '34') {
+                await store.dispatch('getRoomDetail', { id: route.params.id })
+            } else {
+                await store.dispatch('getRoomDetail', { id: 11 })
+            }
+            
 
             setTimeout(() => { loading.close() }, 200)
 

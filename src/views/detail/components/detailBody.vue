@@ -66,6 +66,7 @@ async function orderClick() {
     >
         <el-carousel-item v-for="(item, index) in roomDetail.imgs" :key="index">
             <img v-lazy="item" />
+            <!-- <img :src="item" /> -->
         </el-carousel-item>
     </el-carousel>
 

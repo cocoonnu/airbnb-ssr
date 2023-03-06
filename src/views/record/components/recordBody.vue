@@ -72,6 +72,8 @@ onMounted(async function() {
                 @click="goDetail(item)"
             >
                 <img v-lazy="item.pictureUrl">
+                <!-- <img :src="item.pictureUrl"> -->
+
 
                 <h3 class="record-title">{{ item.title }}</h3>
 

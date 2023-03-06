@@ -119,6 +119,8 @@ function goDetail(item: any) {
                 >
     
                     <img v-lazy="item.pictureUrl" >
+                    <!-- <img :src="item.pictureUrl" > -->
+
     
                     <h3 class="home-title">{{ item.title }}</h3>
     

@@ -58,6 +58,8 @@ await delayFetchOrderApi()
     >
         <div class="order-img">
             <img v-lazy="item.pictureUrl" @click="goDetail(item)" >
+            <!-- <img :src="item.pictureUrl" @click="goDetail(item)" > -->
+
         </div>
 
         <div class="order-text">
