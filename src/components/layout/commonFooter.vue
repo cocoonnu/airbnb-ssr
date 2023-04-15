@@ -121,7 +121,7 @@ const footerMenu = reactive(
                 </li>
             </ul>
 
-            <div class="copy-right">@ 2022 Harry, Inc . All rights reserved.</div>
+            <div class="copy-right">@ 2022 Harry Inc . All rights reserved.</div>
         </div>
     </div>
 

@@ -1,12 +1,6 @@
 import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { reqgetRoomList } from '@/api/home/index'
-import { reqgetCategoryList } from '@/api/index'
-
-
-
-import { reqgetRoomList, reqgetRoomListMock } from '@/api/home/index'
-import { reqgetCategoryList } from '@/api/index'
 import { reqgetRoomDetail } from '@/api/detail'
 
 
@@ -84,7 +78,7 @@ export function createSSRStore() {
                 // 合并参数
                 Object.assign(params, { pageSize: state.roomPageSize })
 
-                let result = await reqgetRoomList(params)
+                let result: any = await reqgetRoomList(params)
                 // console.log(result);
 
 
@@ -103,7 +97,7 @@ export function createSSRStore() {
             // 获取房屋详细数据
             async getRoomDetail({ state }, params) {
 
-                let result = await reqgetRoomDetail(params)
+                let result: any = await reqgetRoomDetail(params)
                 // console.log(result)
                 
                 if (result.code == '000000') {
@@ -115,15 +109,6 @@ export function createSSRStore() {
 
                 return true
             },
-
-
-
-            async getCategoryList({ state }) {
-                let result = await reqgetCategoryList()
-
-                if (result.code == 200) state.categoryList = result.data
-                else console.log('获取数据失败');
-            }
 
         },
 

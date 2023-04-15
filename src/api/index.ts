@@ -1,12 +1,5 @@
-import { http } from '@/utils/http'
 import { ElLoading } from 'element-plus'
-import { airbnbDB } from '@/db/index';
-
-
-// 真实接口（测试接口）
-export const reqgetCategoryList = function () {
-    return http.httpRequestGet(`http://gmall-h5-api.atguigu.cn/api/product/getBaseCategoryList`,{});
-}
+import { airbnbDB } from '@/db/index'
 
 
 // 保存当前语言包
@@ -54,6 +47,7 @@ export async function fetchLanguageApi() {
     // 加载结束
     setTimeout(() => { loading.close() }, 200)
 
+    // @ts-ignore
     return result ? result.language : 'zh'
 }
 

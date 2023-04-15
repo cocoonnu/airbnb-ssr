@@ -113,7 +113,7 @@ async function submitForm(formEl: FormInstance | undefined) {
 
 // 切换登录和注册
 let loginSignCheck = ref('login')
-function loginSign() {
+function loginSign(formEl: FormInstance | undefined) {
     if (loginSignCheck.value == 'login') loginSignCheck.value = 'sign'
     else loginSignCheck.value = 'login' 
 
@@ -126,6 +126,9 @@ function loginSign() {
 
     // 加载结束
     setTimeout(() => { loading.close() }, 500)
+
+    // 重置表单项
+    if(formEl) formEl.resetFields()
     
     // 发送消息
     ElMessage({
@@ -221,9 +224,9 @@ const changeLang = async function () {
                 </el-form-item>
 
                 <!-- 登录注册切换 -->
-                <a class="question" @click="loginSign" v-if="loginSignCheck == 'login'"
+                <a class="question" @click="loginSign(ruleFormRef)" v-if="loginSignCheck == 'login'"
                 >{{ t('login.question_login') }}</a>
-                <a class="question" @click="loginSign" v-if="loginSignCheck == 'sign'" 
+                <a class="question" @click="loginSign(ruleFormRef)" v-if="loginSignCheck == 'sign'" 
                 >{{ t('login.question_sign') }}</a>
 
                 <!-- 按钮 -->

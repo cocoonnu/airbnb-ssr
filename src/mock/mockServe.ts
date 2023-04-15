@@ -1,3 +1,4 @@
+// @ts-ignore
 import Mock from 'mockjs'
 
 // 引入 json 数据

@@ -23,6 +23,7 @@ class Http {
 
     // 请求拦截 config 为一个 axios 请求
     private httpInterceptorsRequest() {
+        // @ts-ignore
         Http.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
             // 发送请求前可以做的事
             // nprogress.start();
