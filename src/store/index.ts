@@ -47,12 +47,7 @@ export function createSSRStore() {
             orderList: []
         },
 
-        getters: {
-
-        },
-
         mutations: {
-
             fetchLanguage(state, value) {
                 state.language = value
             },
@@ -112,8 +107,6 @@ export function createSSRStore() {
 
         },
 
-        modules: {
-        }
     })
 
 }

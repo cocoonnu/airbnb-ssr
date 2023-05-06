@@ -4,17 +4,15 @@
 
 #### SSR 网站应用介绍
 
-一个防爱彼迎的房屋租赁网站，通过对 SPA 应用的两次改造，从 0 到 1 实现服务端渲染
+一款仿爱彼迎的房屋租赁网站，通过对 SPA 应用的两次改造，从 0 到 1 实现服务端渲染
 
-- 用户登录、注册等表单功能和后台管理的 实现
-- 页面重定向，登录权限拦截
-- 订单、历史记录模块的功能
-- 切换全局语言（支持中英文）
-- 首页 SSR 动态数据加载，服务端和客户端 vuex 数据同步
-- 图片懒加载，异步组件的实现
-- indexed DB 模拟数据库，mock 模拟后端接口
-- ElementPlus 组件的基本使用
-- 路由 mate 元信息处理，SEO 优化
+- 首页 SSR 服务端渲染，同时实现服务端数据预取
+- indexDB 数据库和 Mock 接口搭配使用模拟后端请求
+- 路由 mate 元信息处理，并进行了 SEO 优化
+- 实现登录注册、表单验证和后台管理等用户业务
+- 实现页面重定向，登录权限拦截、订单、历史记录模块
+- 实现全局语言切换功能（支持中英文）
+- 实现图片懒加载、异步组件和 ElementPlus 组件库的基本使用
 
 
 
@@ -30,9 +28,7 @@
 
 所用到的技术栈有：
 
-Vue3新特性、Vuex4、Typescript、ES6、flex布局、Sass、Mock、Nodejs、SSR、axios、Vite等
-
-
+Vue3、Vuex4、Typescript、ES6、Flex、Sass、Mock、Nodejs、SSR、axios、Vite等
 
 
 
@@ -41,8 +37,6 @@ Vue3新特性、Vuex4、Typescript、ES6、flex布局、Sass、Mock、Nodejs、S
 
 
 项目笔记：https://github.com/cocoonnu/WebProjects/blob/main/Markdown/Vue/Vue3_project.md
-
-
 
 
 

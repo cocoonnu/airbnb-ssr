@@ -5,7 +5,7 @@ import { ElMessage } from 'element-plus'
 import { ElLoading } from 'element-plus'
 import { toRaw } from '@vue/reactivity'
 
-
+ 
 const { app, router, store } = createApp()
 
 if ((window as any).__INITIAL_STATE__) {
@@ -29,6 +29,7 @@ router.beforeEach(async function () {
 
 router.isReady().then(function() {
     
+    // 实现路由组件在不刷新的路由跳转下也能执行asyncData函数
     router.beforeResolve((to, from, next) => {
         const toComponents = router.resolve(to).matched.flatMap(record =>
             Object.values(record.components)
@@ -37,6 +38,7 @@ router.isReady().then(function() {
             Object.values(record.components)
         )
 
+        // 获取跳转前后不重复的组件
         const actived = toComponents.filter((c, i) => {
             return fromComponents[i] !== c
         })
@@ -64,7 +66,7 @@ router.isReady().then(function() {
     app.mount('#app')
 })
 
-
+// 实现在不刷新的路由跳转下也能匹配mate信息
 router.afterEach((to, from, next) => {
 
     // 填充 mate 元信息

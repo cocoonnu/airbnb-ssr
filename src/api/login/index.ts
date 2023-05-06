@@ -21,7 +21,7 @@ export async function userSignApi(params: any) {
 
 
     // 获取仓库中所有的用户数组
-    let usersData = await airbnbDB.getList(storeName)
+    let usersData: any = await airbnbDB.getList(storeName)
 
     let hasMobile = false
     usersData.map((user) => {

@@ -17,7 +17,7 @@ import VueLazyload from 'vue-lazyload'
 import loadingimage from './assets/loading.gif'
 
 import { sync } from 'vuex-router-sync'
-
+ 
 
 export function createApp() {
     const app = createSSRApp(App)
