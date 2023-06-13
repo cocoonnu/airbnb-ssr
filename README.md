@@ -1,5 +1,3 @@
-![airbnb-ssr](https://socialify.git.ci/cocoonnu/airbnb-ssr/image?description=1&font=Inter&language=1&name=1&owner=1&pattern=Solid&theme=Light)
-
 #### SSR 网站应用介绍
 
 一款仿爱彼迎的房屋租赁网站，通过对 SPA 应用的两次改造，从 0 到 1 实现服务端渲染
